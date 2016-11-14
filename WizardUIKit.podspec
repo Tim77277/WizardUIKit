@@ -104,7 +104,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "WizardUIKit/Images.xcassets/*.png", "WizardUIKit/*.storyboard", "WizardUIKit/*.xib"
+  s.resources = "WizardUIKit/*.xcassets", "WizardUIKit/*.storyboard", "WizardUIKit/*.xib"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
