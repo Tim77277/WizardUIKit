@@ -28,7 +28,7 @@ import UIKit
 
 let kAlertTextMinimumHeight: CGFloat   = 185.0
 let kDefaultAlertCornerRadius: CGFloat = 5
-let kWizardBundle = Bundle(identifier: "com.aou.design.WizardUIKit")
+let kWizardBundle = Bundle(for: Wizard.self)
 
 public enum AnimateDirection {
     case slideUp
