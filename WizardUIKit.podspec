@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WizardUIKit"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "WizardUIKit is a library that includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, StringPicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. Of course, if you need a very unique design to fit your app then you still need to make one on your own. However, WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to feet your need."
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Tim77277/WizardUIKit.git", :tag => "1.0.2" }
+  s.source       = { :git => "https://github.com/Tim77277/WizardUIKit.git", :tag => "1.0.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
