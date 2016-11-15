@@ -114,7 +114,7 @@ public class Wizard {
             actionAlert.actionButton?.text            = "Download"
         case .overwrite:
             actionAlert.titleLabel.text               = "Overwrite"
-            actionAlert.actionButton?.backgroundColor = UIColor.WizardBlueColor()
+            actionAlert.actionButton?.backgroundColor = UIColor.WizardRedColor()
             actionAlert.actionButton?.text            = "Overwrite"
         case .delete:
             actionAlert.titleLabel.text               = "Delete"
@@ -164,11 +164,56 @@ public class Wizard {
         viewController.present(vc, animated: true, completion: nil)
     }
     
-    public func showImageActionAlert(image: UIImage, buttonText: String, message: String, viewController: UIViewController, completion: (() -> Void)?) {
+    public func showImageActionAlert(withImage image: UIImage, message: String, viewController: UIViewController, completion: (() -> Void)?) {
         var imageActionAlert = self.imageActionAlert
         imageActionAlert.image = image
         imageActionAlert.contentLabel.text  = message
-        imageActionAlert.actionButton.text = buttonText
+        
+        let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ImageActionAlertViewController") as! ImageActionAlertViewController
+        
+        vc.imageActionAlert = imageActionAlert
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle   = .crossDissolve
+        
+        vc.didCancel = {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+        
+        vc.didConfirmAction = {
+            viewController.dismiss(animated: true, completion: nil)
+            if completion != nil {
+                completion!()
+            }
+        }
+        viewController.present(vc, animated: true, completion: nil)
+    }
+    
+    public func showImageActionAlert(message: String, actionStyle: AlertActionStyle, viewController: UIViewController, completion: (() -> Void)?) {
+        var imageActionAlert = self.imageActionAlert
+        imageActionAlert.contentLabel.text = message
+        
+        switch actionStyle {
+        case .save:
+            imageActionAlert.image                        = UIImage(named: "save", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardGreenColor()
+            imageActionAlert.actionButton.text            = "Save"
+        case .add:
+            imageActionAlert.image                        = UIImage(named: "add", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardGreenColor()
+            imageActionAlert.actionButton.text            = "Add"
+        case .download:
+            imageActionAlert.image                        = UIImage(named: "download", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardBlueColor()
+            imageActionAlert.actionButton.text            = "Download"
+        case .overwrite:
+            imageActionAlert.image                        = UIImage(named: "overwrite", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardRedColor()
+            imageActionAlert.actionButton.text            = "Overwrite"
+        case .delete:
+            imageActionAlert.image                        = UIImage(named: "delete", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardRedColor()
+            imageActionAlert.actionButton.text            = "Delete"
+        }
         
         let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ImageActionAlertViewController") as! ImageActionAlertViewController
         
