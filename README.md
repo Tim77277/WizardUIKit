@@ -130,12 +130,36 @@ wizard.showTextFieldAlert(title: "Save File",
 }
 ```
 
+### ProgressAlert
+If you need an alert to show the progress of a certain process. ProgressAlert is the one that you might want to use in your project. ProgressAlert has two functions. One is purely for dispalying the alert and set up the call back. Another one is a function to set up the progress percentage. 
+
+```swift
+wizard.showProgressAlert(title: "Downloading..",
+                         viewController: self,
+       finishHandler: {
+        //.. do something when it has been finished
+        
+    }, cancelHandler: {
+        //.. do something when it has been canceled
+})
+
+var finishedTask = 0
+for task in tasks {
+
+   //process the task...     
+   finishedTask += 1
+   
+   //Update the percentage to ProgressAlert
+   wizard.setProgressBar(percentage: CGFloat(finishedTask / downloadTasks.count))
+}
+```
+
 ### DatePicker
 A simple date picker with "Today" button and some settings, should be enough for general cases.
 
 ```swift
 //set up default date, datePicker will animate to this date when it shows
-wizard.datePicker.picker.defaultDate = Date()
+wizard.datePicker.picker.defaultDate = YOURDEFAULTDATE
 
 //show datePicker
 wizard.showDatePicker(title: "Select Date", 
