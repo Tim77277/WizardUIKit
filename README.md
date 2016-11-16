@@ -20,8 +20,31 @@ WizardUIKit is writen as a singleton, all UIs are created when Wizard.UIKit is b
 let wizard = Wizard.UIKit
 ```
 
-### StatusAlert
+## StatusAlert
 
+### Properties
+```swift
+var successStatus: WizardStatus
+```
+A struct contains the information how StatusAlert should be displayed when status is success
+```swift
+var warningStatus: WizardStatus
+```
+A struct contains the information how StatusAlert should be displayed when status is warning
+```swift
+var errorStatus: WizardStatus
+```
+A struct contains the information how StatusAlert should be displayed when status is error
+```swift
+var animation: WizardAnimation
+```
+A struct contains the information how StatusAlert should be animated
+```swift
+var expandable: Bool
+```
+use to set up if the StatusAlert should be expanded when the message is longer than default heigh
+
+### Example
 ```swift
 wizard.showStatusAlert(withStatus: .success, 
                             title: "Congradulation", 
@@ -31,7 +54,7 @@ wizard.showStatusAlert(withStatus: .success,
 }
 ```
 
-- AlertStatus
+- WizardStatus
   * success (by default, it comes with a check mark Icon and a green button with white text color)
   * warning (by default, it comes with a exclamation point Icon and a yello button with white text color)
   * error   (by default, it comes with a cross mark Icon and a red button with white text color)
@@ -52,7 +75,44 @@ wizard.showStatusAlert(withStatus: .success,
 ```
 *Note: Once you change it, it stays what it looks like. Thus next time you can just call showStatusAlert function without redefine the color again*
 
-### ActionAlert
+
+
+## ActionAlert
+### Properties
+```swift
+var titleLabel: WizardLabel
+```
+A struct contains the information how title label should be displayed in ActionAlert
+```swift
+var contentLabel: WizardLabel
+```
+A struct contains the information how message label should be displayed in ActionAlert
+```swift
+var cancelButton: WizardButton
+```
+A struct contains the information how cancel button should be displayed in ActionAlert
+```swift
+var actionButton: WizardButton
+```
+A struct contains the information how action button should be displayed in ActionAlert
+```swift
+var animation: WizardAnimation
+```
+A struct contains the information how ActionAlert should be animated
+```swift
+var expandable: Bool
+```
+use to set up if the ActionAlert should be expanded when the message is longer than default heigh
+```swift
+var cornerRadius: CGFloat
+```
+use to change ActionAlert's cornerRadius
+```swift
+var backgroundColor: UIColor
+```
+use to change ActionAlert's background color
+
+### Example
 ActionAlert comes with an action button and a cancel button.
 Action button has a call back to handle the action after the user confirm the request and cancel button will dismiss the alert by itself once the user tap on the cancel button.
 
@@ -87,7 +147,8 @@ wizard.showActionAlert(withTitle: "Connect",
 
 *Note: Once you change it, it stays what it looks like. Thus next time you can just call showStatusAlert function without redefine the color again*
 
-### ImageActionAlert
+
+## ImageActionAlert
 ImageActionAlert is idendical to ActionAlert, the only difference is it comes with an image.
 
 ```swift
@@ -98,12 +159,12 @@ wizard.showImageActionAlert(message: "Would you like to save this record?",
 }
 ```
 
-- AlertAction
-  * add       (by default, it comes with a "Add" image and a green button with "Add" as its button text)
-  * save      (by default, it comes with a "Save" image and a green button with "Save" as its button text)
-  * delete    (by default, it comes with a "Delete" image and a red button with "Delete" as its button text)
-  * overwrite (by default, it comes with a "Overwrite" image and a red button with "Overwrite" as its button text)
-  * download  (by default, it comes with a "Download" image and a blue button with "Download" as its button text)
+- **AlertAction**
+  * **add**       (by default, it comes with a "Add" image and a green button with "Add" as its button text)
+  * **save**      (by default, it comes with a "Save" image and a green button with "Save" as its button text)
+  * **delete**    (by default, it comes with a "Delete" image and a red button with "Delete" as its button text)
+  * **overwrite** (by default, it comes with a "Overwrite" image and a red button with "Overwrite" as its button text)
+  * **download**  (by default, it comes with a "Download" image and a blue button with "Download" as its button text)
   
 If you would like to customize the ImageActionAlert, you would need to call a different function instead because the above function prefills the image for developers who do not wish to change the design. However, if you wish to change the image of the ImageActionAlert, you can call the below function and change ImageActionAlert property before you call it.
 
@@ -194,4 +255,4 @@ wizard.showNamePicker(title: "Information",
     //do something with the selected information
 }
 ```  
-**Note: each component must have the given value in selectedStringsForComponents** 
+**Note: if a given value in selectedStringsForComponents is not found to the matched component, it will scroll to index 0** 
