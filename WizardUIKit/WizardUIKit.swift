@@ -32,12 +32,17 @@ public enum AlertStatus {
     case error
 }
 
-public enum AlertActionStyle {
+public enum AlertAction {
     case delete
     case add
     case save
     case overwrite
     case download
+}
+
+public enum ProgressAlertStyle {
+    case activityIndicator
+    case horizontalProgressBar
 }
 
 public class Wizard {
@@ -95,7 +100,7 @@ public class Wizard {
         viewController.present(vc, animated: true, completion: nil)
     }
     
-    public func showActionAlert(message: String, actionStyle: AlertActionStyle, viewController: UIViewController, completion: (() -> Void)?) {
+    public func showActionAlert(message: String, actionStyle: AlertAction, viewController: UIViewController, completion: (() -> Void)?) {
         var actionAlert = self.actionAlert
         actionAlert.contentLabel.text = message
         
@@ -188,11 +193,11 @@ public class Wizard {
         viewController.present(vc, animated: true, completion: nil)
     }
     
-    public func showImageActionAlert(message: String, actionStyle: AlertActionStyle, viewController: UIViewController, completion: (() -> Void)?) {
+    public func showImageActionAlert(message: String, action: AlertAction, viewController: UIViewController, completion: (() -> Void)?) {
         var imageActionAlert = self.imageActionAlert
         imageActionAlert.contentLabel.text = message
         
-        switch actionStyle {
+        switch action {
         case .save:
             imageActionAlert.image                        = UIImage(named: "save", in: kWizardBundle, compatibleWith: nil)!
             imageActionAlert.actionButton.backgroundColor = UIColor.WizardGreenColor()
@@ -306,39 +311,31 @@ public class Wizard {
     
     private var progressViewController: ProgressViewController!
     
-    public func showProgressAlert(title: String, displayPercentage: Bool, viewController: UIViewController, finishHandler finished:(() -> Void)?, cancelHandler cancel: (() -> Void)?) {
-        var progressAlert = self.progressAlert
-        progressAlert.titleLabel.text   = title
-        progressAlert.displayPercentage = displayPercentage
+    public func showProgressAlert(style: ProgressAlertStyle, viewController: UIViewController) {
         
-        progressViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ProgressViewController") as! ProgressViewController
-        progressViewController.progressAlert          = progressAlert
-        progressViewController.modalPresentationStyle = .overCurrentContext
-        progressViewController.modalTransitionStyle   = .crossDissolve
-        
-        progressViewController.didFinish = {
-            self.progressViewController = nil
-            viewController.dismiss(animated: true, completion: nil)
-            if finished != nil {
-               finished!()
-            }
+        switch style {
+        case .activityIndicator:
+            break
+            
+        case .horizontalProgressBar:
+            let progressAlert = self.progressAlert
+            progressViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ProgressViewController") as! ProgressViewController
+            progressViewController.progressAlert          = progressAlert
+            progressViewController.modalPresentationStyle = .overCurrentContext
+            progressViewController.modalTransitionStyle   = .crossDissolve
+            viewController.present(progressViewController, animated: true, completion: nil)
         }
-        
-        progressViewController.didCancel = {
-            self.progressViewController = nil
-            viewController.dismiss(animated: true, completion: nil)
-            if cancel != nil {
-                cancel!()
-            }
-        }
-        
-        viewController.present(progressViewController, animated: true, completion: nil)
     }
     
-    public func setProgressBar(percentage: CGFloat) {
+    public func setProgress(percentage: Float) {
         if progressViewController != nil {
-            progressViewController.percentage = percentage
+            progressViewController.progressView.progress = percentage
         }
+    }
+    
+    public func hideProgressAlert() {
+        progressViewController.dismiss(animated: true, completion: nil)
+        progressViewController = nil
     }
     
     

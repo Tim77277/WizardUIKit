@@ -695,25 +695,9 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lM-GG-E4M">
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywe-Zc-hsE">
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b58-S8-fMj">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNH-Wq-CHs">
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="i0q-0G-kj7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelButtonTapped:" destination="U4t-79-Dcj" eventType="touchUpInside" id="fv4-SY-ZBm"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Tx-QS-Od9">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Bzu-KV-YYJ"/>
@@ -722,52 +706,46 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8e-Mc-aYV">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0E-a5-Ife">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="ses-JQ-FS5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tz-r4-edE">
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-w8-9h2">
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBu-RL-EoJ">
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </view>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="t9b-K4-FQC">
                                                 <constraints>
-                                                    <constraint firstItem="DBu-RL-EoJ" firstAttribute="width" secondItem="8ZA-w8-9h2" secondAttribute="width" multiplier="0.01" id="9XF-Qy-m4t"/>
-                                                    <constraint firstAttribute="bottom" secondItem="DBu-RL-EoJ" secondAttribute="bottom" id="R5U-ZD-fhH"/>
-                                                    <constraint firstItem="DBu-RL-EoJ" firstAttribute="top" secondItem="8ZA-w8-9h2" secondAttribute="top" id="Rj7-I2-q8j"/>
-                                                    <constraint firstItem="DBu-RL-EoJ" firstAttribute="leading" secondItem="8ZA-w8-9h2" secondAttribute="leading" id="cJS-HQ-XoZ"/>
-                                                    <constraint firstAttribute="height" constant="5" id="mGb-TW-1y5"/>
+                                                    <constraint firstAttribute="height" constant="10" id="0fj-jL-CeU"/>
                                                 </constraints>
-                                            </view>
+                                                <color key="progressTintColor" red="0.43529411759999997" green="0.6588235294" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="8ZA-w8-9h2" firstAttribute="width" secondItem="V8e-Mc-aYV" secondAttribute="width" multiplier="0.9" id="Reu-Dd-WOb"/>
-                                            <constraint firstItem="8ZA-w8-9h2" firstAttribute="centerY" secondItem="V8e-Mc-aYV" secondAttribute="centerY" id="fMc-N7-wf8"/>
-                                            <constraint firstItem="8ZA-w8-9h2" firstAttribute="centerX" secondItem="V8e-Mc-aYV" secondAttribute="centerX" id="pZs-tT-nXk"/>
+                                            <constraint firstItem="t9b-K4-FQC" firstAttribute="centerX" secondItem="6Tz-r4-edE" secondAttribute="centerX" id="5Qk-R3-HUb"/>
+                                            <constraint firstItem="t9b-K4-FQC" firstAttribute="centerY" secondItem="6Tz-r4-edE" secondAttribute="centerY" id="PUy-Na-6i4"/>
+                                            <constraint firstItem="t9b-K4-FQC" firstAttribute="width" secondItem="6Tz-r4-edE" secondAttribute="width" multiplier="0.8" id="uwQ-eC-ewh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0Ql-u6-5S9"/>
                                     <constraint firstItem="b58-S8-fMj" firstAttribute="top" secondItem="7lM-GG-E4M" secondAttribute="top" id="1oJ-kD-Uto"/>
                                     <constraint firstAttribute="trailing" secondItem="9Tx-QS-Od9" secondAttribute="trailing" id="3a0-cs-vTj"/>
                                     <constraint firstItem="b58-S8-fMj" firstAttribute="leading" secondItem="7lM-GG-E4M" secondAttribute="leading" id="7h1-pw-4ON"/>
-                                    <constraint firstItem="ywe-Zc-hsE" firstAttribute="height" secondItem="7lM-GG-E4M" secondAttribute="height" multiplier="15:140" id="Eve-uy-Ps4"/>
-                                    <constraint firstItem="ywe-Zc-hsE" firstAttribute="width" secondItem="7lM-GG-E4M" secondAttribute="width" id="NFH-LZ-TOc"/>
-                                    <constraint firstItem="V8e-Mc-aYV" firstAttribute="leading" secondItem="7lM-GG-E4M" secondAttribute="leading" id="T1a-64-xU4"/>
-                                    <constraint firstItem="sNH-Wq-CHs" firstAttribute="width" secondItem="7lM-GG-E4M" secondAttribute="width" multiplier="0.9" id="UUk-lq-OCT"/>
-                                    <constraint firstItem="sNH-Wq-CHs" firstAttribute="top" secondItem="V8e-Mc-aYV" secondAttribute="bottom" id="VDx-Ge-FEN"/>
-                                    <constraint firstItem="sNH-Wq-CHs" firstAttribute="centerX" secondItem="7lM-GG-E4M" secondAttribute="centerX" id="cAo-eA-Hm9"/>
-                                    <constraint firstAttribute="bottom" secondItem="ywe-Zc-hsE" secondAttribute="bottom" id="cLh-sL-5oT"/>
+                                    <constraint firstItem="a0E-a5-Ife" firstAttribute="top" secondItem="6Tz-r4-edE" secondAttribute="bottom" id="IXh-Vt-0sG"/>
+                                    <constraint firstItem="a0E-a5-Ife" firstAttribute="leading" secondItem="7lM-GG-E4M" secondAttribute="leading" id="J1t-rE-Hl5"/>
+                                    <constraint firstAttribute="trailing" secondItem="a0E-a5-Ife" secondAttribute="trailing" id="diY-Ow-dbf"/>
                                     <constraint firstItem="b58-S8-fMj" firstAttribute="width" secondItem="7lM-GG-E4M" secondAttribute="width" id="e43-BQ-mfz"/>
-                                    <constraint firstAttribute="trailing" secondItem="V8e-Mc-aYV" secondAttribute="trailing" id="e7z-Kf-ILJ"/>
+                                    <constraint firstItem="6Tz-r4-edE" firstAttribute="leading" secondItem="7lM-GG-E4M" secondAttribute="leading" id="eEZ-z1-sAV"/>
                                     <constraint firstItem="b58-S8-fMj" firstAttribute="height" secondItem="7lM-GG-E4M" secondAttribute="height" multiplier="15:140" id="f2f-vc-Cro"/>
                                     <constraint firstItem="9Tx-QS-Od9" firstAttribute="top" secondItem="b58-S8-fMj" secondAttribute="bottom" id="gRZ-Vm-MJb"/>
-                                    <constraint firstItem="ywe-Zc-hsE" firstAttribute="top" secondItem="sNH-Wq-CHs" secondAttribute="bottom" id="lPL-YV-qKL"/>
-                                    <constraint firstItem="V8e-Mc-aYV" firstAttribute="top" secondItem="9Tx-QS-Od9" secondAttribute="bottom" id="oRu-sS-ngC"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Tz-r4-edE" secondAttribute="trailing" id="lnK-Bg-lFP"/>
+                                    <constraint firstAttribute="bottom" secondItem="a0E-a5-Ife" secondAttribute="bottom" id="qn3-RM-xGp"/>
                                     <constraint firstItem="9Tx-QS-Od9" firstAttribute="leading" secondItem="7lM-GG-E4M" secondAttribute="leading" id="tqL-ry-Rax"/>
-                                    <constraint firstItem="ywe-Zc-hsE" firstAttribute="leading" secondItem="7lM-GG-E4M" secondAttribute="leading" id="vj8-Th-Ywq"/>
+                                    <constraint firstItem="6Tz-r4-edE" firstAttribute="top" secondItem="9Tx-QS-Od9" secondAttribute="bottom" id="xLp-dc-Via"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -775,15 +753,12 @@
                         <constraints>
                             <constraint firstItem="7lM-GG-E4M" firstAttribute="centerY" secondItem="EfU-Cm-tJg" secondAttribute="centerY" id="GYg-Mv-Bcu"/>
                             <constraint firstItem="7lM-GG-E4M" firstAttribute="centerX" secondItem="EfU-Cm-tJg" secondAttribute="centerX" id="HG0-fd-g8c"/>
-                            <constraint firstItem="7lM-GG-E4M" firstAttribute="height" secondItem="EfU-Cm-tJg" secondAttribute="height" multiplier="140:667" id="PZR-LN-ZFx"/>
                             <constraint firstItem="7lM-GG-E4M" firstAttribute="width" secondItem="EfU-Cm-tJg" secondAttribute="width" multiplier="300:375" id="pBX-LL-bd9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="alertView" destination="7lM-GG-E4M" id="JRr-3C-4Gq"/>
-                        <outlet property="cancelButton" destination="sNH-Wq-CHs" id="nQN-7X-gUh"/>
-                        <outlet property="progressBarBackgroundView" destination="8ZA-w8-9h2" id="8Dm-pj-sdg"/>
-                        <outlet property="progressBarView" destination="DBu-RL-EoJ" id="Baq-77-DtZ"/>
+                        <outlet property="progressView" destination="t9b-K4-FQC" id="eLB-ZP-W73"/>
                         <outlet property="titleLabel" destination="9Tx-QS-Od9" id="95c-fg-887"/>
                     </connections>
                 </viewController>

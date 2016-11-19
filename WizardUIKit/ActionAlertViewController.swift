@@ -56,7 +56,7 @@ class ActionAlertViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         view.layoutIfNeeded()
-        showAlertAnimationWith(options: actionAlert.animationOptions)
+        showAlertAnimationWith(options: actionAlert.animation)
     }
 
     override func didReceiveMemoryWarning() {

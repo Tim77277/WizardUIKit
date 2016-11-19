@@ -34,7 +34,7 @@ public struct WizardActionAlert {
     public var contentLabel: WizardLabel
     public var cancelButton: WizardButton?
     public var actionButton: WizardButton?
-    public var animationOptions: WizardAnimation
+    public var animation: WizardAnimation
     
     init() {
         expandable          = false
@@ -44,10 +44,10 @@ public struct WizardActionAlert {
         contentLabel  = WizardLabel(text: "Example", textColor: .darkGray, textAlignment: .center, font: UIFont.systemFont(ofSize: 14, weight: UIFontWeightRegular))
         cancelButton = WizardButton(text: "Cancel", textColor: .darkGray, backgroundColor: .groupTableViewBackground, cornerRadius: 3)
         actionButton = WizardButton(text: "OK", textColor: .white, backgroundColor: UIColor.WizardGreenColor(), cornerRadius: 3)
-        animationOptions    = WizardAnimation(direction: .slideDown, duration: 0.5)
+        animation    = WizardAnimation(direction: .slideDown, duration: 0.5)
     }
     
-    init(cornerRadius: CGFloat, expandable: Bool, backgroundColor: UIColor, titleLabel: WizardLabel, contentLabel: WizardLabel,cancelButton: WizardButton, actionButton: WizardButton, animationOptions: WizardAnimation) {
+    init(cornerRadius: CGFloat, expandable: Bool, backgroundColor: UIColor, titleLabel: WizardLabel, contentLabel: WizardLabel,cancelButton: WizardButton, actionButton: WizardButton, animation: WizardAnimation) {
         self.expandable       = expandable
         self.cornerRadius     = cornerRadius
         self.backgroundColor  = backgroundColor
@@ -55,7 +55,7 @@ public struct WizardActionAlert {
         self.contentLabel     = contentLabel
         self.cancelButton     = cancelButton
         self.actionButton     = actionButton
-        self.animationOptions = animationOptions
+        self.animation        = animation
     }
 }
 

@@ -58,20 +58,20 @@ public struct WizardDatePicker {
 }
 
 public struct WizardProgressBar {
-    public var barColor: UIColor
-    public var backgroundColor: UIColor
-    public var height: CGFloat
+    public var progressColor: UIColor
+    public var trackColor: UIColor
+    public var cornerRadius: CGFloat
     
     init() {
-        self.barColor = UIColor.WizardBlueColor()
-        self.backgroundColor = UIColor.groupTableViewBackground
-        self.height = 5
+        self.progressColor = UIColor.WizardBlueColor()
+        self.trackColor = UIColor.groupTableViewBackground
+        self.cornerRadius = 3
     }
     
-    public init(barColor: UIColor, backgroundColor: UIColor, height: CGFloat) {
-        self.height   = height
-        self.barColor = barColor
-        self.backgroundColor = backgroundColor
+    public init(progressColor: UIColor, trackColor: UIColor, cornerRadius: CGFloat) {
+        self.progressColor = progressColor
+        self.trackColor    = trackColor
+        self.cornerRadius  = cornerRadius
     }
 }
 
