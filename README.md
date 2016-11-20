@@ -42,7 +42,7 @@ A struct contains the information how StatusAlert should be animated
 ```swift
 var expandable: Bool
 ```
-use to set up if the StatusAlert should be expanded when the message is longer than default heigh
+Use to set up if the StatusAlert should be expanded when the message is longer than default heigh
 
 ### Example
 ```swift
@@ -78,44 +78,44 @@ wizard.showStatusAlert(withStatus: .success,
 
 
 ## ActionAlert
+ActionAlert comes with an action button and a cancel button.
+Action button has a call back to handle the action after the user confirm the request and cancel button will dismiss the alert by itself once the user tap on the cancel button.
+
 ### Properties
+```swift
+var cornerRadius: CGFloat
+```
+Use to change ActionAlert's cornerRadius
+```swift
+var backgroundColor: UIColor
+```
+Use to change ActionAlert's background color
+```swift
+var expandable: Bool
+```
+Use to set up if the ActionAlert should be expanded when the message is longer than default heigh
 ```swift
 var titleLabel: WizardLabel
 ```
-A struct contains the information how title label should be displayed in ActionAlert
+A struct contains the information how title label should be displayed on ActionAlert
 ```swift
 var contentLabel: WizardLabel
 ```
-A struct contains the information how message label should be displayed in ActionAlert
+A struct contains the information how message label should be displayed on ActionAlert
 ```swift
 var cancelButton: WizardButton
 ```
-A struct contains the information how cancel button should be displayed in ActionAlert
+A struct contains the information how cancel button should be displayed on ActionAlert
 ```swift
 var actionButton: WizardButton
 ```
-A struct contains the information how action button should be displayed in ActionAlert
+A struct contains the information how action button should be displayed on ActionAlert
 ```swift
 var animation: WizardAnimation
 ```
 A struct contains the information how ActionAlert should be animated
-```swift
-var expandable: Bool
-```
-use to set up if the ActionAlert should be expanded when the message is longer than default heigh
-```swift
-var cornerRadius: CGFloat
-```
-use to change ActionAlert's cornerRadius
-```swift
-var backgroundColor: UIColor
-```
-use to change ActionAlert's background color
 
 ### Example
-ActionAlert comes with an action button and a cancel button.
-Action button has a call back to handle the action after the user confirm the request and cancel button will dismiss the alert by itself once the user tap on the cancel button.
-
 ```swift
 wizard.showActionAlert(message: "Would you like to overwrite this file?", 
                         action: .overwrite, 
@@ -151,6 +151,37 @@ wizard.showActionAlert(withTitle: "Connect",
 ## ImageActionAlert
 ImageActionAlert is idendical to ActionAlert, the only difference is it comes with an image.
 
+### Properties
+```swift
+var image: UIImage
+```
+Use to change ImageAlert's image
+```swift
+var backgroundColor: UIColor
+```
+Use to change ImageAlert's background color
+```swift
+var cornerRadius: CGFloat
+```
+Use to change ImageAlert's cornerRadius
+```swift
+var expandable: Bool
+```
+Use to set up if the ImageActionAlert should be expanded when the message is longer than default heigh
+```swift
+var contentLabel: WizardLabel
+```
+A struct contains the information how content label should be displayed on ImageActionAlert
+```swift
+var actionButton: WizardButton
+```
+A struct contains the information how action button should be displayed on ImageActionAlert
+```swift
+var animation: WizardAnimation
+```
+A struct contains the information how ImageActionAlert should be animated
+
+### Example
 ```swift
 wizard.showImageActionAlert(message: "Would you like to save this record?", 
                         action: .save, 
@@ -180,9 +211,42 @@ wizard.showImageActionAlert(withImage: UIImage(named: "YOURIMAGE"),
 }
 ```
 
-### TextFieldAlert
-If you wish your user to enter some information for you, you can use TextFieldAlert to get the user input in the call back. Example here shows the scenario that you would like your user enter a file name before saving the data.
+## TextFieldAlert
+### Properties
+```swift
+var backgroundColor: UIColor
+```
+Use to change TextFieldAlert's background color
+```swift
+var cornerRadius: CGFloat
+```
+Use to change TextFieldAlert's cornerRadius
+```swift
+var keyboardType: UIKeyboardType
+```
+Use to change TextFieldAlert's keyboard type
+```swift
+var expandable: Bool
+```
+Use to set up if the ImageActionAlert should be expanded when the message is longer than default heigh
+```swift
+var titleLabel: WizardLabel
+```
+A struct contains the information how title label should be displayed on TextFieldAlert
+```swift
+var textField: WizardTextField
+```
+A struct contains the information how text field should be displayed on TextFieldAlert
+```swift
+var button: WizardButton
+```
+A struct contains the information how confirm button should be displayed on TextFieldAlert
+```swift
+var animation: WizardAnimation
+```
+A struct contains the information how ImageActionAlert should be animated
 
+### Example
 ```swift
 wizard.showTextFieldAlert(title: "Save File", 
                     placeholder: "Enter a file name...", 
@@ -191,33 +255,86 @@ wizard.showTextFieldAlert(title: "Save File",
 }
 ```
 
-### ProgressAlert
-If you need an alert to show the progress of a certain process. ProgressAlert is the one that you might want to use in your project. ProgressAlert has two functions. One is purely for dispalying the alert and set up the call back. Another one is a function to set up the progress percentage. 
-
+## ProgressAlert
+### Properties
 ```swift
-wizard.showProgressAlert(title: "Downloading..",
-                         viewController: self,
-       finishHandler: {
-        //.. do something when it has been finished
-        
-    }, cancelHandler: {
-        //.. do something when it has been canceled
+var cornerRadius: CGFloat
+```
+Use to change how ProgressAlert's cornerRadius
+```swift
+var backgroundColor: UIColor
+```
+Use to change how ProgressAlert's background color
+```swift
+var titleLabel: WizardLabel
+```
+A struct contains the information how title label should be displayed on ProgressAlert
+```swift
+var progressBar: WizardProgressBar
+```
+A struct contains the information how progress bar should be displayed on ProgressAlert
+
+### Functions
+```swift
+func showProgressAlert(viewController: UIViewController)
+```
+Use to show progress alert (Guarantee to be executed in main thread)
+```swift
+func setProgress(progress: Float)
+```
+Use to update progress bar (Guarantee to be executed in main thread)
+```swift
+func hideProgressAlert()
+```
+Use to hide progress bar (Guarantee to be executed in main thread)
+
+### Example
+```swift
+//change properties before you show the progress alert
+wizard.progressAlert.titleLabel.text = "Converting Data..."
+
+//show progress alert with custom properties
+wizard.showProgressAlert(viewController: self)
+
+//do something is another thread so that it won't block the main thread
+doSomthingInBackground(progressHandler: { (progress) in
+     //set progress
+     wizard.setProgress(progress: progress)
+
+    }, completionHandler: {
+     //hide progress alert
+     wizard.hideProgressAlert()
 })
-
-var finishedTask = 0
-for task in tasks {
-
-   //process the task...     
-   finishedTask += 1
-   
-   //Update the percentage to ProgressAlert
-   wizard.setProgressBar(percentage: CGFloat(finishedTask / downloadTasks.count))
-}
 ```
 
-### DatePicker
-A simple date picker with "Today" button and some settings, should be enough for general cases.
-
+## DatePicker
+### Properties
+```swift
+var backgroundColor: UIColor
+```
+Use to change how DatePicker's background color
+```swift
+var titleLabel: WizardLabel
+```
+A struct contains the information how title label should be displayed on DatePicker
+```swift
+var todayButton: WizardButton
+```
+A struct contains the information how today button should be displayed on DatePicker
+```swift
+var doneButton: WizardButton
+```
+A struct contains the information how done button should be displayed on DatePicker
+```swift
+var picker: WizardDatePicker
+```
+A struct contains the information how picker should be displayed on DatePicker
+```swift
+var animation: WizardAnimation
+```
+A struct contains the information how DatePicker should be animated
+    
+### Example
 ```swift
 //set up default date, datePicker will animate to this date when it shows
 wizard.datePicker.picker.defaultDate = YOURDEFAULTDATE
@@ -230,7 +347,30 @@ wizard.showDatePicker(title: "Select Date",
 }
 ```  
 
-### NamePicker
+## NamePicker
+### Properties
+```swift
+var pickerTextColor: UIColor
+```
+Use to change how NamePicker's picker text color
+```swift
+var backgroundColor: UIColor
+```
+Use to change how NamePicker's background color
+```swift
+var titleLabel: WizardLabel
+```
+A struct contains the information how title label should be displayed on NamePicker
+```swift
+var doneButton: WizardButton
+```
+A struct contains the information how done button should be displayed on NamePicker
+```swift
+var animation: WizardAnimation
+```
+A struct contains the information how NamePicker should be animated
+
+### Example 
 Name picker is actually a strings picker, you would be able to give multiple [String] as dataSet for each picker component. It returns both selected strings array and selected index array. For example, if an user select "Katie" and "Female" in the below code, it returns both ["Katie", "Female"] and [3, 1]
 
 ```swift
@@ -241,7 +381,7 @@ wizard.showNamePicker(title: "Information",
              viewController: self) { (strings, indices) in
     //do something with the selected information
 }
-```  
+```
 
 If you want the name picker to select a certain value in the dataSet, you can call the same function with an extra parameter *selectedStringsForComponents*.
 
@@ -255,4 +395,4 @@ wizard.showNamePicker(title: "Information",
     //do something with the selected information
 }
 ```  
-**Note: if a given value in selectedStringsForComponents is not found to the matched component, it will scroll to index 0** 
+**Note: if a given value in selectedStringsForComponents is not found to the matched component, index 0 will be selected as default** 
