@@ -328,14 +328,18 @@ public class Wizard {
     }
     
     public func setProgress(percentage: Float) {
-        if progressViewController != nil {
-            progressViewController.progressView.progress = percentage
+        DispatchQueue.main.async {
+            if self.progressViewController != nil {
+                self.progressViewController.progressView.progress = percentage
+            }
         }
     }
     
     public func hideProgressAlert() {
-        progressViewController.dismiss(animated: true, completion: nil)
-        progressViewController = nil
+        DispatchQueue.main.async {
+            self.progressViewController.dismiss(animated: true, completion: nil)
+            self.progressViewController = nil
+        }
     }
     
     

@@ -55,9 +55,10 @@ class ProgressViewController: UIViewController {
         progressView.progressTintColor  = progressBarOptions.progressColor
         progressView.backgroundColor    = progressBarOptions.trackColor
         progressView.layer.cornerRadius = progressBarOptions.cornerRadius
+        progressView.clipsToBounds      = true
         
-        alertView.backgroundColor      = progressAlert.backgroundColor
-        alertView.layer.cornerRadius   = progressAlert.cornerRadius
+        alertView.backgroundColor       = progressAlert.backgroundColor
+        alertView.layer.cornerRadius    = progressAlert.cornerRadius
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     }
 
