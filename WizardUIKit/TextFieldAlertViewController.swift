@@ -68,6 +68,11 @@ class TextFieldAlertViewController: UIViewController {
         super.viewWillAppear(true)
         showAlertAnimationWith(options: textFieldAlert.animation)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        textField.becomeFirstResponder()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

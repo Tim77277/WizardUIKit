@@ -492,7 +492,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="azK-3q-GLn" firstAttribute="centerY" secondItem="Fbr-Ya-Gaz" secondAttribute="centerY" constant="-50" id="VcD-eE-yDp"/>
+                            <constraint firstItem="azK-3q-GLn" firstAttribute="centerY" secondItem="Fbr-Ya-Gaz" secondAttribute="centerY" id="VcD-eE-yDp"/>
                             <constraint firstItem="azK-3q-GLn" firstAttribute="height" secondItem="Fbr-Ya-Gaz" secondAttribute="height" multiplier="185:667" id="XoF-FE-miT"/>
                             <constraint firstItem="azK-3q-GLn" firstAttribute="width" secondItem="Fbr-Ya-Gaz" secondAttribute="width" multiplier="320:375" id="Z7H-kE-Vqm"/>
                             <constraint firstItem="azK-3q-GLn" firstAttribute="centerX" secondItem="Fbr-Ya-Gaz" secondAttribute="centerX" id="yVq-h8-vql"/>
