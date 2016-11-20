@@ -1,13 +1,12 @@
 # WizardUIKit
-"WizardUIKit includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, NamePicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. Of course, if you need a very unique design to fit your app then you still need to make one on your own. However, WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to fit your need."
+WizardUIKit includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, NamePicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to fit your need.
 
 # Installation
 [CocoaPods](https://cocoapods.org) is the recommended way to add WizardUIKit to your project.
 
 1. Add a pod entry for WizardUIKit to your Podfile 
-
 ```
-pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag => '1.0.2'
+pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag => '1.0.11'
 ```
 
 2. Install it by running pod install.
@@ -22,7 +21,7 @@ let wizard = Wizard.UIKit
 
 ## StatusAlert
 
-### Properties
+### - Properties
 ```swift
 var successStatus: WizardStatus
 ```
@@ -44,7 +43,7 @@ var expandable: Bool
 ```
 Use to set up if the StatusAlert should be expanded when the message is longer than default heigh
 
-### Example
+### - Examples
 ```swift
 wizard.showStatusAlert(withStatus: .success, 
                             title: "Congradulation", 
@@ -79,7 +78,7 @@ wizard.showStatusAlert(withStatus: .success,
 ActionAlert comes with an action button and a cancel button.
 Action button has a call back to handle the action after the user confirm the request and cancel button will dismiss the alert by itself once the user tap on the cancel button.
 
-### Properties
+### - Properties
 ```swift
 var cornerRadius: CGFloat
 ```
@@ -113,7 +112,7 @@ var animation: WizardAnimation
 ```
 A struct contains the information how ActionAlert should be animated
 
-### Example
+### - Examples
 * **Show ActionAlert with default action**
 ```swift
 wizard.showActionAlert(message: "Would you like to overwrite this file?", 
@@ -150,7 +149,7 @@ wizard.showActionAlert(withTitle: "Connect",
 ## ImageActionAlert
 ImageActionAlert is idendical to ActionAlert, the only difference is it comes with an image.
 
-### Properties
+### - Properties
 ```swift
 var image: UIImage
 ```
@@ -180,7 +179,7 @@ var animation: WizardAnimation
 ```
 A struct contains the information how ImageActionAlert should be animated
 
-### Example
+### - Example
 * **Show ImageActionAlert with default action**
 ```swift
 wizard.showImageActionAlert(message: "Would you like to save this record?", 
@@ -211,7 +210,7 @@ wizard.showImageActionAlert(withImage: UIImage(named: "YOURIMAGE"),
 ```
 
 ## TextFieldAlert
-### Properties
+### - Properties
 ```swift
 var backgroundColor: UIColor
 ```
@@ -245,7 +244,7 @@ var animation: WizardAnimation
 ```
 A struct contains the information how ImageActionAlert should be animated
 
-### Example
+### - Example
 ```swift
 wizard.textFieldAlert.button.text = "Submit"
 
@@ -257,7 +256,7 @@ wizard.showTextFieldAlert(title: "Coupon",
 ```
 
 ## ProgressAlert
-### Properties
+### - Properties
 ```swift
 var cornerRadius: CGFloat
 ```
@@ -275,7 +274,7 @@ var progressBar: WizardProgressBar
 ```
 A struct contains the information how progress bar should be displayed on ProgressAlert
 
-### Functions
+### - Functions
 ```swift
 func showProgressAlert(viewController: UIViewController)
 ```
@@ -289,7 +288,7 @@ func hideProgressAlert()
 ```
 Use to hide progress bar (Force to be executed in main thread)
 
-### Example
+### - Example
 ```swift
 //change properties before you show the progress alert
 wizard.progressAlert.titleLabel.text = "Converting Data..."
@@ -309,7 +308,7 @@ doSomthingInBackground(progressHandler: { (progress) in
 ```
 
 ## Indicator
-### Properties
+### - Properties
 ```swift
 var color: UIColor
 ```
@@ -327,7 +326,7 @@ var dimColor: UIColor
 ```
 Use to change screen's color
 
-### Functions
+### - Functions
 ```swift
 func showIndicator(withStyle style: IndicatorStyle, viewController: UIViewController)
 ```
@@ -341,7 +340,7 @@ func hideIndicator()
 ```
 Hide Indicator
 
-### Example
+### - Examples
 * **Show Indicator with default style**
 ```swift
 //show Indicator with white style
@@ -371,7 +370,7 @@ doSomthingInBackground(completionHandler: {
 ```
 
 ## DatePicker
-### Properties
+### - Properties
 ```swift
 var backgroundColor: UIColor
 ```
@@ -397,7 +396,7 @@ var animation: WizardAnimation
 ```
 A struct contains the information how DatePicker should be animated
     
-### Example
+### - Example
 ```swift
 //set up default date, datePicker will animate to this date when it shows
 wizard.datePicker.picker.defaultDate = YOURDEFAULTDATE
@@ -411,7 +410,7 @@ wizard.showDatePicker(title: "Select Date",
 ```  
 
 ## NamePicker
-### Properties
+### - Properties
 ```swift
 var pickerTextColor: UIColor
 ```
@@ -433,7 +432,7 @@ var animation: WizardAnimation
 ```
 A struct contains the information how NamePicker should be animated
 
-### Example 
+### - Examples
 You can give multiple [String] as dataSet for each picker component. It returns both selected strings array and selected index array. For example, if an user select "Katie" and "Female" in the below code, it returns both ["Katie", "Female"] and [3, 1]
 
 ```swift
