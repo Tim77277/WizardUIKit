@@ -346,7 +346,7 @@ public class Wizard {
         indicatorViewController.indicator = indicator
         indicatorViewController.modalPresentationStyle = .overCurrentContext
         indicatorViewController.modalTransitionStyle   = .crossDissolve
-        viewController.present(viewController, animated: true, completion: nil)
+        viewController.present(indicatorViewController, animated: true, completion: nil)
     }
     
     public func hideIndicator() {
