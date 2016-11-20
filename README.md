@@ -54,7 +54,7 @@ wizard.showStatusAlert(withStatus: .success,
 }
 ```
 
-- WizardStatus
+- **WizardStatus**
   * success (by default, it comes with a check mark Icon and a green button with white text color)
   * warning (by default, it comes with a exclamation point Icon and a yello button with white text color)
   * error   (by default, it comes with a cross mark Icon and a red button with white text color)
@@ -74,8 +74,6 @@ wizard.showStatusAlert(withStatus: .success,
 }
 ```
 *Note: Once you change it, it stays what it looks like. Thus next time you can just call showStatusAlert function without redefine the color again*
-
-
 
 ## ActionAlert
 ActionAlert comes with an action button and a cancel button.
@@ -124,7 +122,7 @@ wizard.showActionAlert(message: "Would you like to overwrite this file?",
 }
 ```
 
-- AlertAction
+- **AlertAction**
   * add       (by default, it comes with a "Add" title and a green button with "Add" as its button text)
   * save      (by default, it comes with a "Save" title and a green button with "Save" as its button text)
   * delete    (by default, it comes with a "Delete" title and a red button with "Delete" as its button text)
@@ -278,15 +276,15 @@ A struct contains the information how progress bar should be displayed on Progre
 ```swift
 func showProgressAlert(viewController: UIViewController)
 ```
-Use to show progress alert (Guarantee to be executed in main thread)
+Use to show progress alert
 ```swift
 func setProgress(progress: Float)
 ```
-Use to update progress bar (Guarantee to be executed in main thread)
+Use to update progress bar (Force to be executed in main thread)
 ```swift
 func hideProgressAlert()
 ```
-Use to hide progress bar (Guarantee to be executed in main thread)
+Use to hide progress bar (Force to be executed in main thread)
 
 ### Example
 ```swift
@@ -304,6 +302,59 @@ doSomthingInBackground(progressHandler: { (progress) in
     }, completionHandler: {
      //hide progress alert
      wizard.hideProgressAlert()
+})
+```
+
+## Indicator
+### Properties
+```swift
+var color: UIColor
+```
+Use to change Indicator's color
+```swift
+var cornerRadius: CGFloat
+```
+Use to change Indicator's square-shape background corneradius
+```swift
+var backgroundColor : UIColor
+```
+Use to change Indicator's square-shape background color
+```swift
+var dimColor: UIColor
+```
+Use to change screen's color
+
+### Functions
+```swift
+func showIndicator(withStyle style: IndicatorStyle, viewController: UIViewController)
+```
+Show indicatoor with default styles (black, white)
+```swift
+func showIndicator(viewController: UIViewController)
+```
+Show Indicator with custom style
+```swift
+func hideIndicator()
+```
+Hide Indicator
+
+### Example
+* Show Indicator with default style
+```swift
+wizard.showIndicator(withStyle: .white, viewController: self)
+doSomthingInBackground(completionHandler: {
+    wizard.hideIndicator()
+})
+```
+
+* Show Indicator with custom style
+```swift
+wizard.indicator.color = .black
+wizard.indicator.backgroundColor = .white
+
+wizard.showIndicator(viewController: self)
+doSomthingInBackground(completionHandler: {
+    wizard.hideIndicator()
 })
 ```
 
