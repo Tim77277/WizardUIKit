@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "WizardUIKit"
-  s.version      = "1.0.10"
+  s.version      = "1.0.11"
   s.summary      = "WizardUIKit is a library that includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, StringPicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. Of course, if you need a very unique design to fit your app then you still need to make one on your own. However, WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to feet your need."
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Tim77277/WizardUIKit.git", :tag => "1.0.10" }
+  s.source       = { :git => "https://github.com/Tim77277/WizardUIKit.git", :tag => "1.0.11" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,7 +89,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "WizardUIKit", "WizardUIKit/**/*.{h,m,swift}"
+  s.source_files  = "WizardUIKit", "WizardUIKit/**/*.{h,m}"
   # s.exclude_files = "WizardUIKit/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
