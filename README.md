@@ -11,10 +11,10 @@ pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag =
 ```
 
 2. Install it by running pod install.
-3. Include WizardUIKit wherever you need it with #import WizardUIKit.
+3. Include WizardUIKit with #import WizardUIKit.
 
 # Usage
-WizardUIKit is writen as a singleton, all UIs are created when Wizard.UIKit is being called at the first time. The reason why I choose to implement in this way is because when a user changes the design property of a Wizard UI, it stores the property values so that he/she doesn't need to redefine everytime in every single viewController. Thus the first thing to do is to implement the WizardUIKit instance.
+WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit is being called at the first time. The reason why I choose to implement in this way is because when a user changes the design property of a Wizard UI, it stores the property values so that he/she doesn't need to redefine everytime in every single viewController. Thus the first thing to do is to implement the WizardUIKit instance. However, if you prefer not to load all these UIs at once, please let me know. I will consider to seperate each of them to an individual library if necessary.
 
 ```swift
 let wizard = Wizard.UIKit
