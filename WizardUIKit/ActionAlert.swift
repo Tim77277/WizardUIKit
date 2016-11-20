@@ -36,7 +36,7 @@ public struct WizardActionAlert {
     public var actionButton: WizardButton?
     public var animation: WizardAnimation
     
-    init() {
+    public init() {
         expandable          = false
         cornerRadius        = kDefaultAlertCornerRadius
         backgroundColor     = .white
@@ -47,7 +47,7 @@ public struct WizardActionAlert {
         animation    = WizardAnimation(direction: .slideDown, duration: 0.5)
     }
     
-    init(cornerRadius: CGFloat, expandable: Bool, backgroundColor: UIColor, titleLabel: WizardLabel, contentLabel: WizardLabel,cancelButton: WizardButton, actionButton: WizardButton, animation: WizardAnimation) {
+    public init(cornerRadius: CGFloat, expandable: Bool, backgroundColor: UIColor, titleLabel: WizardLabel, contentLabel: WizardLabel,cancelButton: WizardButton, actionButton: WizardButton, animation: WizardAnimation) {
         self.expandable       = expandable
         self.cornerRadius     = cornerRadius
         self.backgroundColor  = backgroundColor

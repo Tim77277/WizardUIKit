@@ -33,7 +33,7 @@ public struct WizardNamePickerAlert {
     public var doneButton: WizardButton
     public var animation: WizardAnimation
     
-    init() {
+    public init() {
         pickerTextColor = .black
         backgroundColor = .white
         titleLabel   = WizardLabel(text: "Title", textColor: .black, font: UIFont.boldSystemFont(ofSize: 18))
@@ -41,7 +41,7 @@ public struct WizardNamePickerAlert {
         animation    = WizardAnimation(direction: .slideUp, duration: 0.3)
     }
     
-    init(pickerTextColor: UIColor, backgroundColor: UIColor, titleLabel: WizardLabel, doneButton: WizardButton, animation: WizardAnimation) {
+    public init(pickerTextColor: UIColor, backgroundColor: UIColor, titleLabel: WizardLabel, doneButton: WizardButton, animation: WizardAnimation) {
         self.titleLabel          = titleLabel
         self.doneButton          = doneButton
         self.animation           = animation

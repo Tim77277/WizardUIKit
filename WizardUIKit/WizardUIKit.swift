@@ -54,8 +54,9 @@ public class Wizard {
     open var namePicker: WizardNamePickerAlert
     open var datePicker: WizardDatePickerAlert
     open var progressAlert: WizardProgressAlert
+    open var indicator: WizardIndicatorAlert
     
-    public init(statusAlert: WizardStatusAlert = WizardStatusAlert(), actionAlert: WizardActionAlert = WizardActionAlert(), imageActionAlert: WizardImageActionAlert = WizardImageActionAlert(), textFieldAlert: WizardTextFieldAlert = WizardTextFieldAlert(), namePicker: WizardNamePickerAlert = WizardNamePickerAlert(), datePicker: WizardDatePickerAlert = WizardDatePickerAlert(), progressAlert: WizardProgressAlert = WizardProgressAlert()) {
+    public init(statusAlert: WizardStatusAlert = WizardStatusAlert(), actionAlert: WizardActionAlert = WizardActionAlert(), imageActionAlert: WizardImageActionAlert = WizardImageActionAlert(), textFieldAlert: WizardTextFieldAlert = WizardTextFieldAlert(), namePicker: WizardNamePickerAlert = WizardNamePickerAlert(), datePicker: WizardDatePickerAlert = WizardDatePickerAlert(), progressAlert: WizardProgressAlert = WizardProgressAlert(), indicator: WizardIndicatorAlert = WizardIndicatorAlert()) {
         self.statusAlert      = statusAlert
         self.actionAlert      = actionAlert
         self.imageActionAlert = imageActionAlert
@@ -63,6 +64,7 @@ public class Wizard {
         self.namePicker       = namePicker
         self.datePicker       = datePicker
         self.progressAlert    = progressAlert
+        self.indicator        = indicator
     }
     
     public func showStatusAlert(withStatus status: AlertStatus, title: String, message: String, viewController: UIViewController, completion: (() -> Void)?) {
@@ -329,12 +331,32 @@ public class Wizard {
     }
     
     public func hideProgressAlert() {
-        DispatchQueue.main.async {
-            self.progressViewController.dismiss(animated: true, completion: nil)
-            self.progressViewController = nil
+        if self.progressViewController != nil {
+            DispatchQueue.main.async {
+                self.progressViewController.dismiss(animated: true, completion: nil)
+                self.progressViewController = nil
+            }
         }
     }
     
+    private var indicatorViewController: ActivityIndicatorAlertViewController!
+    
+    public func showIndicator(viewController: UIViewController) {
+        indicatorViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ActivityIndicatorAlertViewController") as! ActivityIndicatorAlertViewController
+        indicatorViewController.indicator = indicator
+        indicatorViewController.modalPresentationStyle = .overCurrentContext
+        indicatorViewController.modalTransitionStyle   = .crossDissolve
+        viewController.present(viewController, animated: true, completion: nil)
+    }
+    
+    public func hideIndicator() {
+        if self.indicatorViewController != nil {
+            DispatchQueue.main.async {
+                self.indicatorViewController.dismiss(animated: true, completion: nil)
+                self.indicatorViewController = nil
+            }
+        }
+    }
     
     private func isNamePickerValid(stringsForComponents:[[String]], selectedStringsForComponents:[String] = []) -> Bool {
         

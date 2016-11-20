@@ -35,7 +35,7 @@ public struct WizardImageActionAlert {
     public var actionButton: WizardButton
     public var animation: WizardAnimation
     
-    init() {
+    public init() {
         image               = UIImage()
         cornerRadius        = kDefaultAlertCornerRadius
         expandable          = true
@@ -45,7 +45,7 @@ public struct WizardImageActionAlert {
         animation    = WizardAnimation(direction: .fadeIn, duration: 0.3)
     }
     
-    init(image: UIImage, cornerRadius: CGFloat, backgroundColor: UIColor, expandable: Bool, contentLabel: WizardLabel, actionButton: WizardButton, animation: WizardAnimation) {
+    public init(image: UIImage, cornerRadius: CGFloat, backgroundColor: UIColor, expandable: Bool, contentLabel: WizardLabel, actionButton: WizardButton, animation: WizardAnimation) {
         self.image           = image
         self.cornerRadius    = cornerRadius
         self.backgroundColor = backgroundColor

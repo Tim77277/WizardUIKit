@@ -34,7 +34,7 @@ public struct WizardDatePickerAlert {
     public var picker: WizardDatePicker
     public var backgroundColor: UIColor
     
-    init() {
+    public init() {
         backgroundColor     = .white
         titleLabel   = WizardLabel(text: "Title", textColor: .black, font: UIFont.boldSystemFont(ofSize: 18))
         doneButton   = WizardButton(text: "Done", textColor: UIColor.WizardBlueColor(), backgroundColor: .clear, cornerRadius: 0)
@@ -43,7 +43,7 @@ public struct WizardDatePickerAlert {
         picker       = WizardDatePicker()
     }
     
-    init(backgroundColor: UIColor, titleLabel: WizardLabel, todayButton: WizardButton, doneButton: WizardButton,  picker: WizardDatePicker, animation: WizardAnimation) {
+    public init(backgroundColor: UIColor, titleLabel: WizardLabel, todayButton: WizardButton, doneButton: WizardButton,  picker: WizardDatePicker, animation: WizardAnimation) {
         self.backgroundColor = backgroundColor
         self.titleLabel      = titleLabel
         self.todayButton     = todayButton

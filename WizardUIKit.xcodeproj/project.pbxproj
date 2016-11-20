@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		556C14AF1DD94AB100F3CB74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 556C14AE1DD94AB100F3CB74 /* Images.xcassets */; };
+		556C14E31DE141C000F3CB74 /* ActivityIndicatorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C14E21DE141C000F3CB74 /* ActivityIndicatorAlert.swift */; };
+		556C14E51DE159C700F3CB74 /* ActivityIndicatorAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C14E41DE159C700F3CB74 /* ActivityIndicatorAlertViewController.swift */; };
 		55F101421DD9164D001CB713 /* ActionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F1012E1DD9164D001CB713 /* ActionAlert.swift */; };
 		55F101431DD9164D001CB713 /* ActionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F1012F1DD9164D001CB713 /* ActionAlertViewController.swift */; };
 		55F101441DD9164D001CB713 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F101301DD9164D001CB713 /* DatePicker.swift */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		556C14AE1DD94AB100F3CB74 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		556C14E21DE141C000F3CB74 /* ActivityIndicatorAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorAlert.swift; sourceTree = "<group>"; };
+		556C14E41DE159C700F3CB74 /* ActivityIndicatorAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorAlertViewController.swift; sourceTree = "<group>"; };
 		55F101231DD91512001CB713 /* WizardUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WizardUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F101271DD91512001CB713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55F1012E1DD9164D001CB713 /* ActionAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionAlert.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				55F1013F1DD9164D001CB713 /* WizardAlertTextCell.swift */,
 				55F101401DD9164D001CB713 /* WizardAlertTextCell.xib */,
 				55F101411DD9164D001CB713 /* WizardUIKit.swift */,
+				556C14E21DE141C000F3CB74 /* ActivityIndicatorAlert.swift */,
+				556C14E41DE159C700F3CB74 /* ActivityIndicatorAlertViewController.swift */,
 				55F101271DD91512001CB713 /* Info.plist */,
 			);
 			path = WizardUIKit;
@@ -212,6 +218,8 @@
 				55F1014B1DD9164D001CB713 /* Options.swift in Sources */,
 				55F101441DD9164D001CB713 /* DatePicker.swift in Sources */,
 				55F101531DD9164D001CB713 /* WizardAlertTextCell.swift in Sources */,
+				556C14E31DE141C000F3CB74 /* ActivityIndicatorAlert.swift in Sources */,
+				556C14E51DE159C700F3CB74 /* ActivityIndicatorAlertViewController.swift in Sources */,
 				55F1014E1DD9164D001CB713 /* StatusAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -772,6 +772,47 @@
             </objects>
             <point key="canvasLocation" x="5738.3999999999996" y="89.505247376311857"/>
         </scene>
+        <!--Activity Indicator Alert View Controller-->
+        <scene sceneID="2us-Q2-B9D">
+            <objects>
+                <viewController storyboardIdentifier="ActivityIndicatorAlertViewController" id="exW-um-hfX" customClass="ActivityIndicatorAlertViewController" customModule="WizardUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zFh-ZU-Quz"/>
+                        <viewControllerLayoutGuide type="bottom" id="BPy-4N-0Zl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Ia-ge-Fz4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZK-D6-is1">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dZK-D6-is1" secondAttribute="height" id="h9x-Ty-CeO"/>
+                                    <constraint firstAttribute="height" constant="100" id="hwC-MH-qYb"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yup-aR-WYL">
+                                <frame key="frameInset" minX="169" minY="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="color" red="0.13975721597671509" green="0.26889720559120178" blue="0.95572191476821899" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dZK-D6-is1" firstAttribute="centerX" secondItem="8Ia-ge-Fz4" secondAttribute="centerX" id="T0t-rr-caj"/>
+                            <constraint firstItem="dZK-D6-is1" firstAttribute="centerY" secondItem="8Ia-ge-Fz4" secondAttribute="centerY" id="bos-Ar-DCg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicatorBackgroundView" destination="dZK-D6-is1" id="u8e-aH-0xb"/>
+                        <outlet property="indicatorView" destination="Yup-aR-WYL" id="y3i-p0-0Ud"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6X-eL-6Zf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6399" y="90"/>
+        </scene>
     </scenes>
     <resources>
         <image name="actionAlertCancelIcon.png" width="14" height="14"/>

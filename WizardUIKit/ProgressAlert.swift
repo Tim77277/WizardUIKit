@@ -32,7 +32,7 @@ public struct WizardProgressAlert {
     public var titleLabel: WizardLabel
     public var progressBar: WizardProgressBar
     
-    init() {
+    public init() {
         cornerRadius       = kDefaultAlertCornerRadius
         backgroundColor    = .white
         
@@ -40,7 +40,7 @@ public struct WizardProgressAlert {
         progressBar = WizardProgressBar(progressColor: UIColor.WizardBlueColor(), trackColor: .groupTableViewBackground, cornerRadius: 3)
     }
     
-    init(displayPercentage: Bool, backgroundColor: UIColor, cornerRadius: CGFloat, titleLabel: WizardLabel, progressBar: WizardProgressBar) {
+    public init(displayPercentage: Bool, backgroundColor: UIColor, cornerRadius: CGFloat, titleLabel: WizardLabel, progressBar: WizardProgressBar) {
         //Variables
         self.cornerRadius       = cornerRadius
         self.backgroundColor    = backgroundColor
