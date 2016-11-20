@@ -114,6 +114,7 @@ var animation: WizardAnimation
 A struct contains the information how ActionAlert should be animated
 
 ### Example
+* **Show ActionAlert with default action**
 ```swift
 wizard.showActionAlert(message: "Would you like to overwrite this file?", 
                         action: .overwrite, 
@@ -129,7 +130,7 @@ wizard.showActionAlert(message: "Would you like to overwrite this file?",
   * overwrite (by default, it comes with a "Overwrite" title and a red button with "Overwrite" as its button text)
   * download  (by default, it comes with a "Download" title and a blue button with "Download" as its button text)
   
-If you would like to customize the ActionAlert, you would need to call a different function instead because the above function prefills the title for developers who do not wish to change the design. However, if you wish to change the title of the ActionAlert, you can call the below function and change ActionAlert property before you call it.
+* **Show ActionAlert with customized action**
 
 ```swift
 //change action button backgroundColor
@@ -180,6 +181,7 @@ var animation: WizardAnimation
 A struct contains the information how ImageActionAlert should be animated
 
 ### Example
+* **Show ImageActionAlert with default action**
 ```swift
 wizard.showImageActionAlert(message: "Would you like to save this record?", 
                         action: .save, 
@@ -195,8 +197,7 @@ wizard.showImageActionAlert(message: "Would you like to save this record?",
   * **overwrite** (by default, it comes with a "Overwrite" image and a red button with "Overwrite" as its button text)
   * **download**  (by default, it comes with a "Download" image and a blue button with "Download" as its button text)
   
-If you would like to customize the ImageActionAlert, you would need to call a different function instead because the above function prefills the image for developers who do not wish to change the design. However, if you wish to change the image of the ImageActionAlert, you can call the below function and change ImageActionAlert property before you call it.
-
+* **Show ImageActionAlert with customized action**
 ```swift
 //change action button backgroundColor
 wizard.imageActionAlert.actionButton.backgroundColor = .black
@@ -246,10 +247,12 @@ A struct contains the information how ImageActionAlert should be animated
 
 ### Example
 ```swift
-wizard.showTextFieldAlert(title: "Save File", 
-                    placeholder: "Enter a file name...", 
-                 viewController: self) { (filename) in
-       //save file with the file name that user entered...
+wizard.textFieldAlert.button.text = "Submit"
+
+wizard.showTextFieldAlert(title: "Coupon", 
+                    placeholder: "Enter your coupon code...", 
+                 viewController: self) { (couponCode) in
+       //do something with coupon
 }
 ```
 
@@ -291,10 +294,10 @@ Use to hide progress bar (Force to be executed in main thread)
 //change properties before you show the progress alert
 wizard.progressAlert.titleLabel.text = "Converting Data..."
 
-//show progress alert with custom properties
+//show progress alert
 wizard.showProgressAlert(viewController: self)
 
-//do something is another thread so that it won't block the main thread
+//do something in another thread so that it won't block the main thread
 doSomthingInBackground(progressHandler: { (progress) in
      //set progress
      wizard.setProgress(progress: progress)
@@ -339,21 +342,30 @@ func hideIndicator()
 Hide Indicator
 
 ### Example
-* Show Indicator with default style
+* **Show Indicator with default style**
 ```swift
+//show Indicator with white style
 wizard.showIndicator(withStyle: .white, viewController: self)
+
+//do something in another thread so that it won't block the main thread
 doSomthingInBackground(completionHandler: {
+    //hide Indicator after the task is finished
     wizard.hideIndicator()
 })
 ```
 
-* Show Indicator with custom style
+* **Show Indicator with customized style**
 ```swift
+//customize your indicator
 wizard.indicator.color = .black
 wizard.indicator.backgroundColor = .white
 
+//show Indicator with your style setting
 wizard.showIndicator(viewController: self)
+
+//do something in another thread so that it won't block the main thread
 doSomthingInBackground(completionHandler: {
+    //hide Indicator after the task is finished
     wizard.hideIndicator()
 })
 ```
@@ -422,7 +434,7 @@ var animation: WizardAnimation
 A struct contains the information how NamePicker should be animated
 
 ### Example 
-Name picker is actually a strings picker, you would be able to give multiple [String] as dataSet for each picker component. It returns both selected strings array and selected index array. For example, if an user select "Katie" and "Female" in the below code, it returns both ["Katie", "Female"] and [3, 1]
+You can give multiple [String] as dataSet for each picker component. It returns both selected strings array and selected index array. For example, if an user select "Katie" and "Female" in the below code, it returns both ["Katie", "Female"] and [3, 1]
 
 ```swift
 let names  = ["John", "David", "Billy", "Katie"]
