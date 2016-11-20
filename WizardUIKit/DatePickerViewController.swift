@@ -100,6 +100,9 @@ class DatePickerViewController: UIViewController {
         doneButton.setTitle(datePicker.doneButton.text, for: .normal)
         doneButton.setTitleColor(datePicker.doneButton.textColor, for: .normal)
         doneButton.backgroundColor = datePicker.doneButton.backgroundColor
+        todayButton.setTitle(datePicker.todayButton.text, for: .normal)
+        todayButton.setTitleColor(datePicker.todayButton.textColor, for: .normal)
+        todayButton.backgroundColor = datePicker.todayButton.backgroundColor
         selectedDate = datePicker.picker.defaultDate
         //UIDatePicker
         picker.setDate(datePicker.picker.defaultDate, animated: true)

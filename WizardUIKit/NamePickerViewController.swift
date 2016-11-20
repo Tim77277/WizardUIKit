@@ -160,6 +160,7 @@ class NamePickerViewController: UIViewController, UIPickerViewDataSource, UIPick
         doneButton.setTitle(namePicker.doneButton.text, for: .normal)
         doneButton.setTitleColor(namePicker.doneButton.textColor, for: .normal)
         doneButton.backgroundColor    = namePicker.doneButton.backgroundColor
+        
         pickerBackgroundView.backgroundColor = namePicker.backgroundColor
         
         
