@@ -31,7 +31,6 @@ public struct WizardProgressAlert {
     public var backgroundColor: UIColor
     public var titleLabel: WizardLabel
     public var progressBar: WizardProgressBar
-    public var button: WizardButton
     
     init() {
         cornerRadius       = kDefaultAlertCornerRadius
@@ -39,10 +38,9 @@ public struct WizardProgressAlert {
         
         titleLabel  = WizardLabel(text: "Progress Alert", textColor: .black, font: UIFont.boldSystemFont(ofSize: 18))
         progressBar = WizardProgressBar(progressColor: UIColor.WizardBlueColor(), trackColor: .groupTableViewBackground, cornerRadius: 3)
-        button      = WizardButton(text: "Cancel", textColor: .darkGray, backgroundColor: .groupTableViewBackground, cornerRadius: 3)
     }
     
-    init(displayPercentage: Bool, backgroundColor: UIColor, cornerRadius: CGFloat, titleLabel: WizardLabel, progressBar: WizardProgressBar, button: WizardButton) {
+    init(displayPercentage: Bool, backgroundColor: UIColor, cornerRadius: CGFloat, titleLabel: WizardLabel, progressBar: WizardProgressBar) {
         //Variables
         self.cornerRadius       = cornerRadius
         self.backgroundColor    = backgroundColor
@@ -50,6 +48,5 @@ public struct WizardProgressAlert {
         //Options
         self.titleLabel  = titleLabel
         self.progressBar = progressBar
-        self.button      = button
     }
 }

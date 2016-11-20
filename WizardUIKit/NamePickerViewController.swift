@@ -124,7 +124,7 @@ class NamePickerViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let attributedString = NSAttributedString(string: stringsForComponents[component][row], attributes: [NSForegroundColorAttributeName : namePicker.pickerViewTextColor])
+        let attributedString = NSAttributedString(string: stringsForComponents[component][row], attributes: [NSForegroundColorAttributeName : namePicker.pickerTextColor])
         return attributedString
     }
     

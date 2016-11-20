@@ -37,9 +37,11 @@ class DatePickerViewController: UIViewController {
     var selectedDate: Date!
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var todayButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var picker: UIDatePicker!
     @IBOutlet weak var pickerBackgroundView: UIView!
+
     
     @IBAction func doneButtonTapped(_ sender: AnyObject) {
         if self.didPick != nil {
@@ -49,12 +51,8 @@ class DatePickerViewController: UIViewController {
         }
     }
     
-    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
-        if self.didCancel != nil {
-            hidePickerAnimationWith(options: datePicker.animation, completionHandler: {
-                self.didCancel!()
-            })
-        }
+    @IBAction func todayButtonTapped(_ sender: AnyObject) {
+        picker.setDate(Date(), animated: true)
     }
     
     @IBAction func datePickerValueChanged(_ sender: AnyObject) {
@@ -105,7 +103,7 @@ class DatePickerViewController: UIViewController {
         selectedDate = datePicker.picker.defaultDate
         //UIDatePicker
         picker.setDate(datePicker.picker.defaultDate, animated: true)
-        picker.setValue(datePicker.pickerTextColor, forKeyPath: "textColor")
+        picker.setValue(datePicker.picker.textColor, forKeyPath: "textColor")
         picker.maximumDate = datePicker.picker.maximumDate
         picker.minimumDate = datePicker.picker.minimumDate
         picker.datePickerMode = datePicker.picker.mode

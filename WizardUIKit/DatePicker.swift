@@ -27,8 +27,8 @@
 import UIKit
 
 public struct WizardDatePickerAlert {
-    public var pickerTextColor: UIColor
     public var titleLabel: WizardLabel
+    public var todayButton: WizardButton
     public var doneButton: WizardButton
     public var animation: WizardAnimation
     public var picker: WizardDatePicker
@@ -36,17 +36,17 @@ public struct WizardDatePickerAlert {
     
     init() {
         backgroundColor     = .white
-        pickerTextColor = .black
         titleLabel   = WizardLabel(text: "Title", textColor: .black, font: UIFont.boldSystemFont(ofSize: 18))
         doneButton   = WizardButton(text: "Done", textColor: UIColor.WizardBlueColor(), backgroundColor: .clear, cornerRadius: 0)
+        todayButton   = WizardButton(text: "Today", textColor: UIColor.WizardBlueColor(), backgroundColor: .clear, cornerRadius: 0)
         animation    = WizardAnimation(direction: .slideUp, duration: 0.3)
         picker       = WizardDatePicker()
     }
     
-    init(pickerTextColor: UIColor,backgroundColor: UIColor, titleLabel: WizardLabel, doneButton: WizardButton,  picker: WizardDatePicker, animation: WizardAnimation) {
-        self.pickerTextColor = pickerTextColor
+    init(backgroundColor: UIColor, titleLabel: WizardLabel, todayButton: WizardButton, doneButton: WizardButton,  picker: WizardDatePicker, animation: WizardAnimation) {
         self.backgroundColor = backgroundColor
         self.titleLabel      = titleLabel
+        self.todayButton     = todayButton
         self.doneButton      = doneButton
         self.animation       = animation
         self.picker          = picker

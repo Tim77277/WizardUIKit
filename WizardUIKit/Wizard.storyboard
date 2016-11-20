@@ -610,10 +610,13 @@
                                             <constraint firstAttribute="height" constant="30" id="Vvn-5d-Idb"/>
                                             <constraint firstAttribute="width" constant="60" id="vdH-Ia-r9Z"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="25" maxY="0.0"/>
-                                        <state key="normal" image="actionAlertCancelIcon.png"/>
+                                        <state key="normal" title="Today">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
-                                            <action selector="cancelButtonTapped:" destination="eiG-NH-AQM" eventType="touchUpInside" id="gjS-su-59Z"/>
+                                            <action selector="todayButtonTapped:" destination="eiG-NH-AQM" eventType="touchUpInside" id="tiM-8E-Cbw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmi-yY-fiq">
@@ -624,7 +627,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Done"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="doneButtonTapped:" destination="eiG-NH-AQM" eventType="touchUpInside" id="Mi6-is-xxV"/>
                                         </connections>
@@ -675,6 +680,7 @@
                         <outlet property="picker" destination="21g-jK-uDP" id="CVn-3H-6dn"/>
                         <outlet property="pickerBackgroundView" destination="RTT-jW-u8Q" id="XqT-Fv-cwD"/>
                         <outlet property="titleLabel" destination="wkl-ls-F6h" id="YJg-ag-RjT"/>
+                        <outlet property="todayButton" destination="Pyu-88-O3b" id="4MB-NP-TU8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5q-GA-GEu" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -311,26 +311,19 @@ public class Wizard {
     
     private var progressViewController: ProgressViewController!
     
-    public func showProgressAlert(style: ProgressAlertStyle, viewController: UIViewController) {
-        
-        switch style {
-        case .activityIndicator:
-            break
-            
-        case .horizontalProgressBar:
-            let progressAlert = self.progressAlert
-            progressViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ProgressViewController") as! ProgressViewController
-            progressViewController.progressAlert          = progressAlert
-            progressViewController.modalPresentationStyle = .overCurrentContext
-            progressViewController.modalTransitionStyle   = .crossDissolve
-            viewController.present(progressViewController, animated: true, completion: nil)
-        }
+    public func showProgressAlert(viewController: UIViewController) {
+        let progressAlert = self.progressAlert
+        progressViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ProgressViewController") as! ProgressViewController
+        progressViewController.progressAlert          = progressAlert
+        progressViewController.modalPresentationStyle = .overCurrentContext
+        progressViewController.modalTransitionStyle   = .crossDissolve
+        viewController.present(progressViewController, animated: true, completion: nil)
     }
     
-    public func setProgress(percentage: Float) {
+    public func setProgress(progress: Float) {
         DispatchQueue.main.async {
             if self.progressViewController != nil {
-                self.progressViewController.progressView.progress = percentage
+                self.progressViewController.progressView.progress = progress
             }
         }
     }

@@ -38,6 +38,7 @@ public enum AnimateDirection {
 
 public struct WizardDatePicker {
     public var mode: UIDatePickerMode!
+    public var textColor: UIColor
     public var defaultDate: Date!
     public var locale: Locale?
     public var minimumDate: Date?
@@ -46,14 +47,16 @@ public struct WizardDatePicker {
     init() {
         self.mode        = UIDatePickerMode.date
         self.defaultDate = Date()
+        self.textColor   = .black
     }
     
-    public init(mode: UIDatePickerMode, defaultDate: Date, locale: Locale, minimumDate: Date?, maximumDate: Date?) {
+    public init(mode: UIDatePickerMode, textColor: UIColor, defaultDate: Date, locale: Locale, minimumDate: Date?, maximumDate: Date?) {
         self.mode   = mode
         self.locale = locale
         self.minimumDate = minimumDate
         self.maximumDate = maximumDate
         self.defaultDate = defaultDate
+        self.textColor   = textColor
     }
 }
 

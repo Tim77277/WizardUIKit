@@ -27,25 +27,25 @@
 import UIKit
 
 public struct WizardNamePickerAlert {
-    public var pickerViewTextColor: UIColor
+    public var pickerTextColor: UIColor
     public var backgroundColor: UIColor
     public var titleLabel: WizardLabel
     public var doneButton: WizardButton
     public var animation: WizardAnimation
     
     init() {
-        pickerViewTextColor = .black
-        backgroundColor     = .white
+        pickerTextColor = .black
+        backgroundColor = .white
         titleLabel   = WizardLabel(text: "Title", textColor: .black, font: UIFont.boldSystemFont(ofSize: 18))
         doneButton   = WizardButton(text: "Done", textColor: UIColor.WizardBlueColor(), backgroundColor: .clear, cornerRadius: 0)
         animation    = WizardAnimation(direction: .slideUp, duration: 0.3)
     }
     
-    init(pickerViewTextColor: UIColor, backgroundColor: UIColor, titleLabel: WizardLabel, doneButton: WizardButton, animation: WizardAnimation) {
+    init(pickerTextColor: UIColor, backgroundColor: UIColor, titleLabel: WizardLabel, doneButton: WizardButton, animation: WizardAnimation) {
         self.titleLabel          = titleLabel
         self.doneButton          = doneButton
         self.animation           = animation
-        self.pickerViewTextColor = pickerViewTextColor
+        self.pickerTextColor     = pickerTextColor
         self.backgroundColor     = backgroundColor
     }
 }
