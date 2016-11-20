@@ -791,17 +791,17 @@
                                     <constraint firstAttribute="height" constant="80" id="hwC-MH-qYb"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yup-aR-WYL">
-                                <frame key="frameInset" minX="169" minY="315" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yup-aR-WYL">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="color" red="0.13975721597671509" green="0.26889720559120178" blue="0.95572191476821899" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Yup-aR-WYL" firstAttribute="centerY" secondItem="dZK-D6-is1" secondAttribute="centerY" id="4Q6-Rt-Kq2"/>
                             <constraint firstItem="dZK-D6-is1" firstAttribute="centerX" secondItem="8Ia-ge-Fz4" secondAttribute="centerX" id="T0t-rr-caj"/>
                             <constraint firstItem="dZK-D6-is1" firstAttribute="centerY" secondItem="8Ia-ge-Fz4" secondAttribute="centerY" id="bos-Ar-DCg"/>
+                            <constraint firstItem="Yup-aR-WYL" firstAttribute="centerX" secondItem="dZK-D6-is1" secondAttribute="centerX" id="bs0-7E-3Hk"/>
                         </constraints>
                     </view>
                     <connections>

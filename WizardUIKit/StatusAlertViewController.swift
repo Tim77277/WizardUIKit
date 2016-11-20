@@ -135,6 +135,7 @@ class StatusAlertViewController: UIViewController, UITableViewDataSource, UITabl
         alertView.backgroundColor      = statusOptions.backgroundColor
         alertTitleLabel.text           = statusOptions.titleLabel.text
         alertTitleLabel.textColor      = statusOptions.titleLabel.textColor
+        alertTitleLabel.font           = statusOptions.titleLabel.font
         alertImageView.image           = statusOptions.image
         alertButton.setTitle(statusOptions.button.text, for: .normal)
         alertButton.setTitleColor(statusOptions.button.textColor, for: .normal)
