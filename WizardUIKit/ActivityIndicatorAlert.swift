@@ -15,7 +15,7 @@ public struct WizardIndicatorAlert {
     public var dimColor: UIColor
     
     public init() {
-        self.cornerRadius    = 5
+        self.cornerRadius    = 15
         self.color           = UIColor.WizardBlueColor()
         self.backgroundColor = .white
         self.dimColor        = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)

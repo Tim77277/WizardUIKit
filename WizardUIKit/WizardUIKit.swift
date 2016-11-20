@@ -341,6 +341,26 @@ public class Wizard {
     
     private var indicatorViewController: ActivityIndicatorAlertViewController!
     
+    public func showIndicator(WithStyle style: IndicatorStyle = .black, viewController: UIViewController) {
+        var indicator = self.indicator
+        switch style {
+        case .white:
+            indicator.color = UIColor.WizardBlueColor()
+            indicator.backgroundColor = .white
+            indicator.dimColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        case .black:
+            indicator.color = .white
+            indicator.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+            indicator.dimColor = .clear
+        }
+        
+        indicatorViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ActivityIndicatorAlertViewController") as! ActivityIndicatorAlertViewController
+        indicatorViewController.indicator = indicator
+        indicatorViewController.modalPresentationStyle = .overCurrentContext
+        indicatorViewController.modalTransitionStyle   = .crossDissolve
+        viewController.present(indicatorViewController, animated: true, completion: nil)
+    }
+    
     public func showIndicator(viewController: UIViewController) {
         indicatorViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ActivityIndicatorAlertViewController") as! ActivityIndicatorAlertViewController
         indicatorViewController.indicator = indicator

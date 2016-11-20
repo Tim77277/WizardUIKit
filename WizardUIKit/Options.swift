@@ -36,6 +36,11 @@ public enum AnimateDirection {
     case fadeIn
 }
 
+public enum IndicatorStyle {
+    case white
+    case black
+}
+
 public struct WizardDatePicker {
     public var mode: UIDatePickerMode!
     public var textColor: UIColor

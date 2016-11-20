@@ -788,7 +788,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dZK-D6-is1" secondAttribute="height" id="h9x-Ty-CeO"/>
-                                    <constraint firstAttribute="height" constant="100" id="hwC-MH-qYb"/>
+                                    <constraint firstAttribute="height" constant="80" id="hwC-MH-qYb"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yup-aR-WYL">
