@@ -341,7 +341,7 @@ public class Wizard {
     
     private var indicatorViewController: ActivityIndicatorAlertViewController!
     
-    public func showIndicator(WithStyle style: IndicatorStyle = .black, viewController: UIViewController) {
+    public func showIndicator(WithStyle style: IndicatorStyle, viewController: UIViewController) {
         var indicator = self.indicator
         switch style {
         case .white:
