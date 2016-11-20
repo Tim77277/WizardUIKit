@@ -83,6 +83,18 @@ Action button has a call back to handle the action after the user confirm the re
 
 ### Properties
 ```swift
+var cornerRadius: CGFloat
+```
+Use to change ActionAlert's cornerRadius
+```swift
+var backgroundColor: UIColor
+```
+Use to change ActionAlert's background color
+```swift
+var expandable: Bool
+```
+Use to set up if the ActionAlert should be expanded when the message is longer than default heigh
+```swift
 var titleLabel: WizardLabel
 ```
 A struct contains the information how title label should be displayed on ActionAlert
@@ -102,18 +114,6 @@ A struct contains the information how action button should be displayed on Actio
 var animation: WizardAnimation
 ```
 A struct contains the information how ActionAlert should be animated
-```swift
-var expandable: Bool
-```
-Use to set up if the ActionAlert should be expanded when the message is longer than default heigh
-```swift
-var cornerRadius: CGFloat
-```
-Use to change ActionAlert's cornerRadius
-```swift
-var backgroundColor: UIColor
-```
-Use to change ActionAlert's background color
 
 ### Example
 ```swift
@@ -308,8 +308,33 @@ doSomthingInBackground(progressHandler: { (progress) in
 ```
 
 ## DatePicker
-A simple date picker with "Today" button and some settings, should be enough for general cases.
-
+### Properties
+```swift
+var backgroundColor: UIColor
+```
+Use to change how DatePicker's background color
+```swift
+var titleLabel: WizardLabel
+```
+A struct contains the information how title label should be displayed on DatePicker
+```swift
+var todayButton: WizardButton
+```
+A struct contains the information how today button should be displayed on DatePicker
+```swift
+var doneButton: WizardButton
+```
+A struct contains the information how done button should be displayed on DatePicker
+```swift
+var picker: WizardDatePicker
+```
+A struct contains the information how picker should be displayed on DatePicker
+```swift
+var animation: WizardAnimation
+```
+A struct contains the information how DatePicker should be animated
+    
+### Example
 ```swift
 //set up default date, datePicker will animate to this date when it shows
 wizard.datePicker.picker.defaultDate = YOURDEFAULTDATE
@@ -323,6 +348,29 @@ wizard.showDatePicker(title: "Select Date",
 ```  
 
 ## NamePicker
+### Properties
+```swift
+var pickerTextColor: UIColor
+```
+Use to change how NamePicker's picker text color
+```swift
+var backgroundColor: UIColor
+```
+Use to change how NamePicker's background color
+```swift
+var titleLabel: WizardLabel
+```
+A struct contains the information how title label should be displayed on NamePicker
+```swift
+var doneButton: WizardButton
+```
+A struct contains the information how done button should be displayed on NamePicker
+```swift
+var animation: WizardAnimation
+```
+A struct contains the information how NamePicker should be animated
+
+### Example 
 Name picker is actually a strings picker, you would be able to give multiple [String] as dataSet for each picker component. It returns both selected strings array and selected index array. For example, if an user select "Katie" and "Female" in the below code, it returns both ["Katie", "Female"] and [3, 1]
 
 ```swift
@@ -333,7 +381,7 @@ wizard.showNamePicker(title: "Information",
              viewController: self) { (strings, indices) in
     //do something with the selected information
 }
-```  
+```
 
 If you want the name picker to select a certain value in the dataSet, you can call the same function with an extra parameter *selectedStringsForComponents*.
 
@@ -347,4 +395,4 @@ wizard.showNamePicker(title: "Information",
     //do something with the selected information
 }
 ```  
-**Note: if a given value in selectedStringsForComponents is not found to the matched component, it will scroll to index 0** 
+**Note: if a given value in selectedStringsForComponents is not found to the matched component, index 0 will be selected as default** 
