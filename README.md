@@ -1,5 +1,7 @@
 # WizardUIKit
-WizardUIKit includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, NamePicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to fit your need.
+<img src="https://github.com/Tim77277/WizardUIKit/blob/master/wizardDemo.gif" width="375" align="center">
+
+WizardUIKit includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, Indicator, NamePicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to fit your need.
 
 # Installation
 [CocoaPods](https://cocoapods.org) is the recommended way to add WizardUIKit to your project.
@@ -338,7 +340,7 @@ Show Indicator with custom style
 ```swift
 func hideIndicator()
 ```
-Hide Indicator
+Hide Indicator (Force to be executed in main thread)
 
 ### - Examples
 * **Show Indicator with default style**
