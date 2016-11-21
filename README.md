@@ -13,7 +13,7 @@ WizardUIKit works on iOS 9+ and requires ARC to build. It depends on the followi
 
 1. Add a pod entry for WizardUIKit to your Podfile 
 ```
-pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag => '1.0.15'
+pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag => '1.0.16'
 ```
 
 2. Install it by running pod install.
