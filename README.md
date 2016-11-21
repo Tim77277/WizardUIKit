@@ -8,7 +8,7 @@ WizardUIKit includes reusable and customizable UI elements such as StatusAlerts,
 
 1. Add a pod entry for WizardUIKit to your Podfile 
 ```
-pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag => '1.0.11'
+pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag => '1.0.15'
 ```
 
 2. Install it by running pod install.
