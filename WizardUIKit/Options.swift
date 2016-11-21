@@ -29,6 +29,8 @@ import UIKit
 let kAlertTextMinimumHeight: CGFloat   = 185.0
 let kDefaultAlertCornerRadius: CGFloat = 5
 let kWizardBundle = Bundle(for: Wizard.self)
+var classProgressViewController: ProgressViewController!
+var classIndicatorViewController: ActivityIndicatorAlertViewController!
 
 public enum AnimateDirection {
     case slideUp

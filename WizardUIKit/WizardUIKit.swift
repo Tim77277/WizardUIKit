@@ -555,6 +555,32 @@ public class Wizard {
         viewController.present(vc, animated: true, completion: nil)
     }
     
+    public class func showProgressAlert(alert: WizardProgressAlert, viewController: UIViewController) {
+        let progressAlert = alert
+        classProgressViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ProgressViewController") as! ProgressViewController
+        classProgressViewController.progressAlert          = progressAlert
+        classProgressViewController.modalPresentationStyle = .overCurrentContext
+        classProgressViewController.modalTransitionStyle   = .crossDissolve
+        viewController.present(classProgressViewController, animated: true, completion: nil)
+    }
+    
+    public class func setProgress(progress: Float) {
+        DispatchQueue.main.async {
+            if classProgressViewController != nil {
+                classProgressViewController.progressView.progress = progress
+            }
+        }
+    }
+    
+    public class func hideProgressAlert() {
+        if classProgressViewController != nil {
+            DispatchQueue.main.async {
+                classProgressViewController.dismiss(animated: true, completion: nil)
+                classProgressViewController = nil
+            }
+        }
+    }
+    
     private var progressViewController: ProgressViewController!
     
     public func showProgressAlert(viewController: UIViewController) {
@@ -582,6 +608,44 @@ public class Wizard {
             }
         }
     }
+    
+    public class func showIndicator(indicator: WizardIndicatorAlert,withStyle style: IndicatorStyle, viewController: UIViewController) {
+        var indicator = indicator
+        switch style {
+        case .white:
+            indicator.color = UIColor.WizardBlueColor()
+            indicator.backgroundColor = .white
+            indicator.dimColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        case .black:
+            indicator.color = .white
+            indicator.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+            indicator.dimColor = .clear
+        }
+        
+        classIndicatorViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ActivityIndicatorAlertViewController") as! ActivityIndicatorAlertViewController
+        classIndicatorViewController.indicator = indicator
+        classIndicatorViewController.modalPresentationStyle = .overCurrentContext
+        classIndicatorViewController.modalTransitionStyle   = .crossDissolve
+        viewController.present(classIndicatorViewController, animated: true, completion: nil)
+    }
+    
+    public class func showIndicator(indicator: WizardIndicatorAlert, viewController: UIViewController) {
+        classIndicatorViewController = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ActivityIndicatorAlertViewController") as! ActivityIndicatorAlertViewController
+        classIndicatorViewController.indicator = indicator
+        classIndicatorViewController.modalPresentationStyle = .overCurrentContext
+        classIndicatorViewController.modalTransitionStyle   = .crossDissolve
+        viewController.present(classIndicatorViewController, animated: true, completion: nil)
+    }
+    
+    public class func hideIndicator() {
+        if classIndicatorViewController != nil {
+            DispatchQueue.main.async {
+                classIndicatorViewController.dismiss(animated: true, completion: nil)
+                classIndicatorViewController = nil
+            }
+        }
+    }
+
     
     private var indicatorViewController: ActivityIndicatorAlertViewController!
     
