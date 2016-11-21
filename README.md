@@ -8,17 +8,21 @@ WizardUIKit includes reusable and customizable UI elements such as StatusAlerts,
 
 1. Add a pod entry for WizardUIKit to your Podfile 
 ```
-pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag => '1.0.11'
+pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag => '1.0.15'
 ```
 
 2. Install it by running pod install.
 3. Include WizardUIKit with #import WizardUIKit.
 
 # Usage
-WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit is being called at the first time. The reason why I choose to implement in this way is because when a user changes the design property of a Wizard UI, it stores the property values so that he/she doesn't need to redefine everytime in every single viewController. Thus the first thing to do is to implement the WizardUIKit instance. However, if you prefer not to load all these UIs at once, please let me know. I will consider to seperate each of them to an individual library if necessary.
+WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit is being called at the first time. The reason why I choose to implement in this way is because when a developer changes a design property of a Wizard UI, it stores the property values so that he/she doesn't need to redefine everytime in every single viewController. However, if you prefer only load the UI when needed, you can call the class function instead.
 
 ```swift
+//If you prefert to load everything at once and use them everywhere, everytime in your projrect.
 let wizard = Wizard.UIKit
+
+//If you prefert to load each UI and reset the properties every time.
+//all examples below use class function instead (progressAlert / Indicator not support class function yet)
 ```
 
 ## StatusAlert
@@ -46,11 +50,25 @@ var expandable: Bool
 Use to set up if the StatusAlert should be expanded when the message is longer than default heigh
 
 ### - Examples
+
+* If you load Wizard class at begining
 ```swift
 wizard.showStatusAlert(withStatus: .success, 
                             title: "Congradulation", 
                           message: "Your profile has been created successfully", 
                    viewController: self) {
+  //do something after user confirm the message...
+}
+```
+
+* If you load it on demand
+```swift
+let statusAlert = WizardStatusAlert()
+Wizard.showStatusAlert(alert: statusAlert,
+                     success: .success, 
+                       title: "Congradulation", 
+                     message: "Your profile has been created successfully", 
+              viewController: self) {
   //do something after user confirm the message...
 }
 ```
