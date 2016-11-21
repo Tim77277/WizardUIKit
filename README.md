@@ -15,15 +15,13 @@ pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag =
 3. Include WizardUIKit with #import WizardUIKit.
 
 # Usage
-WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit is being called at the first time. The reason why I choose to implement in this way is because when a developer changes a design property of a Wizard UI, it stores the property values so that he/she doesn't need to redefine everytime in every single viewController. However, if you prefer only load the UI when needed, you can call the class function instead.
+WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit is being called at the first time. The reason why I choose to implement in this way is because when a developer changes a property of a Wizard UI, it stores the property value so that he/she doesn't need to reset the property everytime in every viewController. However, if you prefer load each UI on demand, you do not need to implement the Wizard.UIKit. But you will need to call the class function instead.
 
 ```swift
 //If you prefert to load everything at once and use them everywhere, everytime in your projrect.
 let wizard = Wizard.UIKit
-
-//If you prefert to load each UI and reset the properties every time.
-//all examples below use class function instead (progressAlert / Indicator not support class function yet)
 ```
+_**NOTE: If you prefert to load each UI on demand, there is an example under StatusAlert that shows you how to load the StatusAlert on demand. And all other UIs use the same way to load on demand.**_
 
 ## StatusAlert
 
@@ -50,8 +48,6 @@ var expandable: Bool
 Use to set up if the StatusAlert should be expanded when the message is longer than default heigh
 
 ### - Examples
-
-* If you load Wizard class at begining
 ```swift
 wizard.showStatusAlert(withStatus: .success, 
                             title: "Congradulation", 
@@ -61,11 +57,14 @@ wizard.showStatusAlert(withStatus: .success,
 }
 ```
 
-* If you load it on demand
+* An exmpale for loading on demand
 ```swift
+//implement the alert and get the instance
 let statusAlert = WizardStatusAlert()
+
+//Use class function and put the alert instance into the function
 Wizard.showStatusAlert(alert: statusAlert,
-                     success: .success, 
+                      status: .success, 
                        title: "Congradulation", 
                      message: "Your profile has been created successfully", 
               viewController: self) {
