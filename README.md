@@ -97,7 +97,6 @@ wizard.showStatusAlert(withStatus: .success,
   //do something after user confirm the message...
 }
 ```
-*Note: Once you change it, it stays what it looks like. Thus next time you can just call showStatusAlert function without redefine the color again*
 
 ## ActionAlert
 ActionAlert comes with an action button and a cancel button.
@@ -167,9 +166,6 @@ wizard.showActionAlert(withTitle: "Connect",
         //connect to wifi here if user wish to do so...
 }
 ```
-
-*Note: Once you change it, it stays what it looks like. Thus next time you can just call showStatusAlert function without redefine the color again*
-
 
 ## ImageActionAlert
 ImageActionAlert is idendical to ActionAlert, the only difference is it comes with an image.
