@@ -1,9 +1,14 @@
 # WizardUIKit
 <img src="https://github.com/Tim77277/WizardUIKit/blob/master/wizardDemo.gif" width="375" align="center">
 
-WizardUIKit includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, Indicator, NamePicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to fit your need.
+WizardUIKit is written with purely swift 3.0. It includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, Full Screen Activity Indicator, NamePicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to fit your need.
+
+# Requirement
+WizardUIKit works on iOS 9+ and requires ARC to build. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
+* UIKit.framework
 
 # Installation
+### Cocoapods
 [CocoaPods](https://cocoapods.org) is the recommended way to add WizardUIKit to your project.
 
 1. Add a pod entry for WizardUIKit to your Podfile 
@@ -14,6 +19,7 @@ pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag =
 2. Install it by running pod install.
 3. Include WizardUIKit with #import WizardUIKit.
 
+
 # Usage
 WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit is being called at the first time. The reason why I choose to implement in this way is because when a developer changes a property of a Wizard UI, it stores the property value so that he/she doesn't need to reset the property everytime in every viewController. However, if you prefer load each UI on demand, you do not need to implement the Wizard.UIKit. But you will need to call the class function instead.
 
@@ -21,7 +27,7 @@ WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit 
 //If you prefert to load everything at once and use them everywhere, everytime in your projrect.
 let wizard = Wizard.UIKit
 ```
-_**NOTE: If you prefert to load each UI on demand, there is an example under StatusAlert that shows you how to load the StatusAlert on demand. And all other UIs use the same way to load on demand.**_
+_**Note: If you prefert to load each UI on demand, there is an example under StatusAlert that shows you how to load a Wizard UI on demand.**_
 
 ## StatusAlert
 
