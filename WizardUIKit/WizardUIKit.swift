@@ -67,6 +67,41 @@ public class Wizard {
         self.indicator        = indicator
     }
     
+    public class func showStatusAlert(alert: WizardStatusAlert, status: AlertStatus, title: String, message: String, viewController: UIViewController, completion: (() -> Void)?) {
+        
+        var statusOptions: WizardStatus!
+        
+        switch status {
+        case .success:
+            statusOptions = alert.successStatus
+            statusOptions.titleLabel.text  = title
+            statusOptions.contentLabel.text = message
+        case .warning:
+            statusOptions = alert.warningStatus
+            statusOptions.titleLabel.text  = title
+            statusOptions.contentLabel.text = message
+        case .error:
+            statusOptions = alert.errorStatus
+            statusOptions.titleLabel.text  = title
+            statusOptions.contentLabel.text = message
+        }
+        
+        let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "StatusAlertViewController") as! StatusAlertViewController
+        
+        vc.statusAlert            = alert
+        vc.statusOptions          = statusOptions
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle   = .crossDissolve
+        
+        vc.didConfim = {
+            viewController.dismiss(animated: true, completion: nil)
+            if completion != nil {
+                completion!()
+            }
+        }
+        viewController.present(vc, animated: true, completion: nil)
+    }
+    
     public func showStatusAlert(withStatus status: AlertStatus, title: String, message: String, viewController: UIViewController, completion: (() -> Void)?) {
         
         var statusOptions: WizardStatus!
@@ -94,6 +129,75 @@ public class Wizard {
         vc.modalTransitionStyle   = .crossDissolve
         
         vc.didConfim = {
+            viewController.dismiss(animated: true, completion: nil)
+            if completion != nil {
+                completion!()
+            }
+        }
+        viewController.present(vc, animated: true, completion: nil)
+    }
+    
+    public class func showActionAlert(alert: WizardActionAlert, message: String, actionStyle: AlertAction, viewController: UIViewController, completion: (() -> Void)?) {
+        var actionAlert = alert
+        actionAlert.contentLabel.text = message
+        
+        switch actionStyle {
+        case .save:
+            actionAlert.titleLabel.text               = "Save"
+            actionAlert.actionButton?.backgroundColor = UIColor.WizardGreenColor()
+            actionAlert.actionButton?.text            = "Save"
+        case .add:
+            actionAlert.titleLabel.text               = "Add"
+            actionAlert.actionButton?.backgroundColor = UIColor.WizardGreenColor()
+            actionAlert.actionButton?.text            = "Add"
+        case .download:
+            actionAlert.titleLabel.text               = "Download"
+            actionAlert.actionButton?.backgroundColor = UIColor.WizardGreenColor()
+            actionAlert.actionButton?.text            = "Download"
+        case .overwrite:
+            actionAlert.titleLabel.text               = "Overwrite"
+            actionAlert.actionButton?.backgroundColor = UIColor.WizardRedColor()
+            actionAlert.actionButton?.text            = "Overwrite"
+        case .delete:
+            actionAlert.titleLabel.text               = "Delete"
+            actionAlert.actionButton?.backgroundColor = UIColor.WizardRedColor()
+            actionAlert.actionButton?.text            = "Delete"
+        }
+        
+        let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ActionAlertViewController") as! ActionAlertViewController
+        
+        vc.actionAlert = actionAlert
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle   = .crossDissolve
+        
+        vc.didCancel = {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+        
+        vc.didConfirmAction = {
+            viewController.dismiss(animated: true, completion: nil)
+            if completion != nil {
+                completion!()
+            }
+        }
+        viewController.present(vc, animated: true, completion: nil)
+    }
+    
+    public class func showActionAlert(alert: WizardActionAlert, title: String, message: String, viewController: UIViewController, completion: (() -> Void)?) {
+        var actionAlert = alert
+        actionAlert.titleLabel.text  = title
+        actionAlert.contentLabel.text = message
+        
+        let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ActionAlertViewController") as! ActionAlertViewController
+        vc.actionAlert = actionAlert
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle   = .crossDissolve
+        
+        vc.didCancel = {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+        
+        vc.didConfirmAction = {
             viewController.dismiss(animated: true, completion: nil)
             if completion != nil {
                 completion!()
@@ -155,6 +259,76 @@ public class Wizard {
         
         let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ActionAlertViewController") as! ActionAlertViewController
         vc.actionAlert = actionAlert
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle   = .crossDissolve
+        
+        vc.didCancel = {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+        
+        vc.didConfirmAction = {
+            viewController.dismiss(animated: true, completion: nil)
+            if completion != nil {
+                completion!()
+            }
+        }
+        viewController.present(vc, animated: true, completion: nil)
+    }
+    
+    public class func showImageActionAlert(alert: WizardImageActionAlert, image: UIImage, message: String, viewController: UIViewController, completion: (() -> Void)?) {
+        var imageActionAlert = alert
+        imageActionAlert.image = image
+        imageActionAlert.contentLabel.text  = message
+        
+        let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ImageActionAlertViewController") as! ImageActionAlertViewController
+        
+        vc.imageActionAlert = imageActionAlert
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle   = .crossDissolve
+        
+        vc.didCancel = {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+        
+        vc.didConfirmAction = {
+            viewController.dismiss(animated: true, completion: nil)
+            if completion != nil {
+                completion!()
+            }
+        }
+        viewController.present(vc, animated: true, completion: nil)
+    }
+    
+    public class func showImageActionAlert(alert: WizardImageActionAlert, message: String, action: AlertAction, viewController: UIViewController, completion: (() -> Void)?) {
+        var imageActionAlert = alert
+        imageActionAlert.contentLabel.text = message
+        
+        switch action {
+        case .save:
+            imageActionAlert.image                        = UIImage(named: "save", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardGreenColor()
+            imageActionAlert.actionButton.text            = "Save"
+        case .add:
+            imageActionAlert.image                        = UIImage(named: "add", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardGreenColor()
+            imageActionAlert.actionButton.text            = "Add"
+        case .download:
+            imageActionAlert.image                        = UIImage(named: "download", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardBlueColor()
+            imageActionAlert.actionButton.text            = "Download"
+        case .overwrite:
+            imageActionAlert.image                        = UIImage(named: "overwrite", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardRedColor()
+            imageActionAlert.actionButton.text            = "Overwrite"
+        case .delete:
+            imageActionAlert.image                        = UIImage(named: "delete", in: kWizardBundle, compatibleWith: nil)!
+            imageActionAlert.actionButton.backgroundColor = UIColor.WizardRedColor()
+            imageActionAlert.actionButton.text            = "Delete"
+        }
+        
+        let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "ImageActionAlertViewController") as! ImageActionAlertViewController
+        
+        vc.imageActionAlert = imageActionAlert
         vc.modalPresentationStyle = .overCurrentContext
         vc.modalTransitionStyle   = .crossDissolve
         
@@ -241,6 +415,27 @@ public class Wizard {
         viewController.present(vc, animated: true, completion: nil)
     }
     
+    public class func showTextFieldAlert(alert: WizardTextFieldAlert, title: String, placeholder: String, viewController: UIViewController, completion: @escaping ((String)-> Void)) {
+        var textFieldAlert = alert
+        textFieldAlert.titleLabel.text = title
+        textFieldAlert.textField.placeholder = placeholder
+        
+        let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "TextFieldAlertViewController") as! TextFieldAlertViewController
+        vc.textFieldAlert = textFieldAlert
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle   = .crossDissolve
+        
+        vc.didCancel = {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+        
+        vc.didConfirm = { text in
+            viewController.dismiss(animated: true, completion: nil)
+            completion(text)
+        }
+        viewController.present(vc, animated: true, completion: nil)
+    }
+    
     public func showTextFieldAlert(title: String, placeholder: String, viewController: UIViewController, completion: @escaping ((String)-> Void)) {
         var textFieldAlert = self.textFieldAlert
         textFieldAlert.titleLabel.text = title
@@ -260,6 +455,32 @@ public class Wizard {
             completion(text)
         }
         viewController.present(vc, animated: true, completion: nil)
+    }
+    
+    public class func showNamePicker(picker: WizardNamePickerAlert,title: String, stringsForComponents:[[String]], selectedStringsForComponents:[String] = [], viewController: UIViewController, completion: @escaping ((([String], [Int]))-> Void)) {
+        
+        if Wizard.isNamePickerValid(stringsForComponents: stringsForComponents, selectedStringsForComponents: selectedStringsForComponents) {
+            var namePicker = picker
+            namePicker.titleLabel.text = title
+            
+            let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "NamePickerViewController") as! NamePickerViewController
+            vc.stringsForComponents         = stringsForComponents
+            vc.selectedStringsForComponents = selectedStringsForComponents
+            vc.namePicker                   = namePicker
+            vc.modalPresentationStyle       = .overCurrentContext
+            vc.modalTransitionStyle         = .crossDissolve
+            
+            vc.didPick = { (strings, indices) in
+                viewController.dismiss(animated: true, completion: nil)
+                completion((strings, indices))
+            }
+            
+            vc.didCancel = {
+                viewController.dismiss(animated: true, completion: nil)
+            }
+            
+            viewController.present(vc, animated: true, completion: nil)
+        }
     }
     
     public func showNamePicker(title: String, stringsForComponents:[[String]], selectedStringsForComponents:[String] = [], viewController: UIViewController, completion: @escaping ((([String], [Int]))-> Void)) {
@@ -286,6 +507,29 @@ public class Wizard {
             
             viewController.present(vc, animated: true, completion: nil)
         }
+    }
+    
+    public class func showDatePicker(picker: WizardDatePickerAlert,title: String, datePickerMode: UIDatePickerMode, viewController: UIViewController, completion: @escaping (Date) -> ()) {
+        var datePicker = picker
+        datePicker.titleLabel.text = title
+        datePicker.picker.mode = datePickerMode
+        
+        let vc = UIStoryboard(name: "Wizard", bundle: kWizardBundle).instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
+        
+        vc.datePicker             = datePicker
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalTransitionStyle   = .crossDissolve
+        
+        vc.didPick = { selectedDate in
+            viewController.dismiss(animated: true, completion: nil)
+            completion(selectedDate)
+        }
+        
+        vc.didCancel = {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+        
+        viewController.present(vc, animated: true, completion: nil)
     }
     
     public func showDatePicker(title: String, datePickerMode: UIDatePickerMode, viewController: UIViewController, completion: @escaping (Date) -> ()) {
@@ -376,6 +620,22 @@ public class Wizard {
                 self.indicatorViewController = nil
             }
         }
+    }
+    
+    private class func isNamePickerValid(stringsForComponents:[[String]], selectedStringsForComponents:[String] = []) -> Bool {
+        
+        if stringsForComponents.count != selectedStringsForComponents.count && !selectedStringsForComponents.isEmpty {
+            print("-- Failed to show name picker because stringsForComponents.count doesn't match to selectedStringsForComponents.count")
+            return false
+        }
+        
+        for stringsForComponent in stringsForComponents {
+            if stringsForComponent.isEmpty {
+                print("-- Failed to show name picker because each string array in stringsForComponents must have at least one item")
+                return false
+            }
+        }
+        return true
     }
     
     private func isNamePickerValid(stringsForComponents:[[String]], selectedStringsForComponents:[String] = []) -> Bool {
