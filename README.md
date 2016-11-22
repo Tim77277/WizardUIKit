@@ -1,7 +1,10 @@
-# WizardUIKit
-<img src="https://github.com/Tim77277/WizardUIKit/blob/master/wizardDemo.gif" width="375">
+<img src="https://github.com/Tim77277/Story/blob/master/wizard_banner@2x.png" width="500">
 
+# WizardUIKit
 WizardUIKit is written with purely swift 3.0. It includes reusable and customizable UI elements such as StatusAlerts, ActionAlert, ImageActionAlert, ProgressAlert, Full Screen Activity Indicator, NamePicker and DatePicker that developers can take an advantage with so that developers do not need to make those UI again and again in different projects and apps. WizardUIKit provides common used UIs with a clean, simple and general design. You can change the design property such as images, text color, text font, background color...etc to fit your need.
+
+# Screenshot
+<img src="https://github.com/Tim77277/WizardUIKit/blob/master/wizardDemo.gif" width="375">
 
 # Requirement
 WizardUIKit works on iOS 9+ and requires ARC to build. It depends on the following Apple frameworks, which should already be included with most Xcode templates:
