@@ -31,7 +31,7 @@ pod 'WizardUIKit', :git => 'https://github.com/Tim77277/WizardUIKit.git', :tag =
 
 
 # Usage
-WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit is being called at the first time. The reason why I choose to implement in this way is because when a developer changes a property of a Wizard UI, it stores the property value so that he/she doesn't need to reset the property everytime in every viewController. However, if you prefer load each UI on demand, you do not need to implement the Wizard.UIKit. But you will need to call the class function instead.
+WizardUIKit is writen as a singleton, all its UIs are created when Wizard.UIKit is called at the first time. The reason why I choose to implement in this way is because when a developer changes a property of a Wizard UI, it stores the property value so that he/she doesn't need to reset the property everytime in every viewController. However, if you prefer to load Wizard UI on demand, you do not need to implement the Wizard.UIKit. But you will need to call the class function instead.
 
 ```swift
 //If you prefert to load everything at once and use them everywhere, everytime in your projrect.
