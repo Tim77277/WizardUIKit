@@ -10,6 +10,7 @@ WizardUIKit is written with purely swift 3.0. It includes reusable and customiza
 
 # Demo
 <img src="https://github.com/Tim77277/WizardUIKit/blob/master/wizardDemo.gif" width="375">
+
 Note: Demo gif has some issue to show on Safari, please use FireFox or Chrome to view the demo for now. 
 
 # Requirement
